@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class GActivity extends Activity
 {
+	
+	String name="gaomh";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
