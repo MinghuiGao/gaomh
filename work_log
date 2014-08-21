@@ -1,0 +1,38 @@
+get the system setting back.
+#apt-get install ubuntu-desktop
+
+solve the porblem of cant open adt.
+#apt-get install lib32ncurses5 lib32bz2-1.0 lib32z1
+solve the problem of cant find the share library of libstdc++6
+#apt-get install libstdc++6-4.4-dev (maybe not needed...)
+#apt-get install lib32stdc++6
+if the two install commands are not useful ,try to install gcc.
+#apt-get install gcc-4.7
+
+修改eclipse提示框颜色
+修改 /usr/share/themes/Ambiance/gtk-2.0/gtkrc 中的tooltip_fg_color为#121212 和 tooltip_bg_color ##F1F1D3。
+
+===========unresolved.===================
+ubuntu下eclipse安装subclipse之后使用javaHL作为连接器会出现一下错误：
+	Failed to load JavaHL Library.
+	These are the errors that were encountered:
+	no libsvnjavahl-1 in java.library.path
+	no svnjavahl-1 in java.library.path
+	no svnjavahl in java.library.path
+	java.library.path = /usr/lib/jvm/java-6-sun-1.6.0.20/jre/lib/i386/client:/usr/lib/jvm/java-6-sun-1.6.0.20/jre/lib/i386:/usr/lib/xulrunner-addons:/usr/lib/xulrunner-addons:/usr/java/packages/lib/i386:/lib:/usr/lib
+===========unresolved.===================
+
+to sovle svn project locked.
+SVN错误：Attempted to lock an already-locked dir
+出现这个问题后使用“清理”功能，如果还不行，就直接到上一级目录，再执行“清理”，然后再“更新”。
+
+================http 使用curl发起https请求========not finish read.
+http://www.cnblogs.com/ainiaa/archive/2011/11/08/2241385.html
+
+linux 下： 删除 ~/.subversion/auth （命令：rm -rf ~/.subversion/auth）
+
+
+/////////////////////////////////
+java 内部类，及内部类与静态内部类的使用及区别。
+http://blog.csdn.net/jiangxinyu/article/details/8177326
+////////////////////////////////
