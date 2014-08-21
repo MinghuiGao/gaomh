@@ -7,6 +7,7 @@ public class GActivity extends Activity
 {
 	
 	String name="gaomh";
+    String tab="tab";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
