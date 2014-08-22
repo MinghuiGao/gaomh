@@ -44,6 +44,18 @@ blog.csdn.net/yixiaogang109/article/details/7328466
 类适配，就是继承被适配的类，实现适配接口，将被适配的类中的方法重新公布到适配接口方法中去，
 对像适配，在适配器中保存一个被适配对像的实例。实现适配接口或重新公布方法。
 
+//// TODO: install sqlite3 on ubuntu :
+apt-get install sqlite3
+# sqlite3 -version
+# sqlite3 test.db
+# sqlite3 ---> enter the command line.
+
+// TODO : GUI of sqlite3 
+# apt-get install sqlitebrowser
+# apt-get install sqliteman
+
+// TODO : install mongodb on ubuntu.
+
 
 
 
