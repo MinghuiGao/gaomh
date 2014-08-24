@@ -57,6 +57,7 @@ apt-get install sqlite3
 // TODO : install mongodb on ubuntu.
 
 
+// TOD : Thread类中start() 和 run() 方法的区别？
 
 
 
