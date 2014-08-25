@@ -12,6 +12,13 @@ if the two install commands are not useful ,try to install gcc.
 修改eclipse提示框颜色
 修改 /usr/share/themes/Ambiance/gtk-2.0/gtkrc 中的tooltip_fg_color为#121212 和 tooltip_bg_color ##F1F1D3。
 
+shutdown the mongo db server:
+# mongo
+> use admin --- > switch to the admin user.
+> db.shutdownServer()
+ok!
+
+
 ===========unresolved.===================
 ubuntu下eclipse安装subclipse之后使用javaHL作为连接器会出现一下错误：
 	Failed to load JavaHL Library.
@@ -58,6 +65,7 @@ apt-get install sqlite3
 
 
 // TOD : Thread类中start() 和 run() 方法的区别？
+
 
 
 
