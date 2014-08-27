@@ -1,6 +1,10 @@
 8_26：
     阅读项目文档，开发移动端框架，于服务器接口进行交互。
 
+8_27:
+硅步科技，gis 开发者论坛，如果需要用他的GIS sdk。
+www.creable.cn/bbs/index.asp?boardid=3&TopicMode=0&List_Type=&Page=1
+
 get the system setting back.
 #apt-get install ubuntu-desktop
 
@@ -69,6 +73,10 @@ apt-get install sqlite3
 
 // TOD : Thread类中start() 和 run() 方法的区别？
 
+// 安装7zip解压及使用方法：
+# apt-get install p7zip
+ 解压：7zr x myfile.7z
+ 压缩：7zr e myfile.7z
 
 
 
@@ -78,14 +86,14 @@ apt-get install sqlite3
 
 
 
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>work infon<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>>>communicate<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 JIRA内网及外网地址：
 内网：http://10.1.99.3:8000/secure/Dashboard.jspa 
         外网：http://114.242.113.83:8000/secure/Dashboard.jspa 
 
-
+邮件地址：
+https://114.242.113.72/owa/
 
 =====================================
 use the follow commands to config the git account.
