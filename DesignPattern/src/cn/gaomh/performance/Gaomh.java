@@ -62,9 +62,10 @@ public class Gaomh {
 			name.concat("gaomh");
 			name.codePointBefore(100);
 		}
-		System.out.println("cost 3 : " + (System.currentTimeMillis()-start));
+		System.out.println((System.currentTimeMillis()-start)+"cost 3--> " +name );
 	}
 	
+	// better performance.
 	public void test4(){
 		long start = System.currentTimeMillis();
 		String name = this.name;
@@ -76,7 +77,7 @@ public class Gaomh {
 			name.concat("gaomh");
 			name.codePointBefore(100);
 		}
-		System.out.println("cost 4 : " + (System.currentTimeMillis()-start));
+		System.out.println((System.currentTimeMillis()-start)+"cost 4--> "+ name );
 	}
 	
 }

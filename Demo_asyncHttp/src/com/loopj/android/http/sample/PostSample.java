@@ -34,6 +34,8 @@ public class PostSample extends SampleParentActivity {
     @Override
     public RequestHandle executeSample(AsyncHttpClient client, String URL, Header[] headers, HttpEntity entity, ResponseHandlerInterface responseHandler) {
         return client.post(this, URL, headers, entity, null, responseHandler);
+//        return client.post(context, url, headers, entity, contentType, responseHandler);
+//    	return client.post(context, url, headers, params, contentType, responseHandler);
     }
 
     @Override
