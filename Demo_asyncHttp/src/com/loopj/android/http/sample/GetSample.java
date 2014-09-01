@@ -61,6 +61,11 @@ public class GetSample extends SampleParentActivity {
     public ResponseHandlerInterface getResponseHandler() {
         return new AsyncHttpResponseHandler() {
 
+        	@Override
+        	public void onProgress(int bytesWritten, int totalSize) {
+        		super.onProgress(bytesWritten, totalSize);
+        	}
+        	
             @Override
             public void onStart() {
                 clearOutputs();
