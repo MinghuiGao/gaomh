@@ -1,0 +1,9 @@
+File.createTempFile("video", ".3gp", dir)
+setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP) 设置输出格式.3gp
+setVideoSize (800, 480) / setVideoFrameRate(15) 设置视频尺寸和帧频率
+setVideoEncoder(MediaRecorder.VideoEncoder.H264) 设置音频编码 AMR_NB
+/setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB) 和视频编码 H.264
+setPreviewDisplay(mSurfaceHolder.getSurface()) 预览视频
+setVideoSource(MediaRecorder.VideoSource.CAMERA) 设置视频源为摄影机
+setAudioSource(MediaRecorder.AudioSource.MIC) 设置音频源为麦克风
+setOutputFile(myRecAudioFile.getAbsolutePath()) 设置视频输出路径

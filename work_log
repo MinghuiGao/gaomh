@@ -154,6 +154,9 @@ Cindent:是特别针对C语言自动缩进。
 如何成为Ubuntu开发者:简介
 http://www.linuxeden.com/html/news/20110201/106616.html
 
+opencore初学分析：
+blog.csdn.net/stefzeus/article/details/6544451
+
 monkey命令使用详解
 blog.csdn.net/huangbiao86/article/details/8490743
 
@@ -168,3 +171,7 @@ java 泛型使用，编写一个组合Gson对像的json字符串解析类。
 ------------------ceshi xiangguan --------------------------
 monkey命令使用详解
 blog.csdn.net/huangbiao86/article/details/8490743
+
+-------------------git pull , svn checkout-------------------
+TODO:opencore sdk
+ https://github.com/android/platform_external_opencore.git
