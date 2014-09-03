@@ -77,14 +77,11 @@ apt-get install sqlite3
 
 // TODO : Thread类中start() 和 run() 方法的区别？
 
-<<<<<<< HEAD
 // TODO : java thread questions --> http://mp.weixin.qq.com/s?sid=AZukVwRggJIqIlXebpF2GIOl&sn=3b032d70b6f7647c77ecb9cf548d15dc&mid=200313947&idx=1&scene=3&__biz=MzA4MDExNzQxNA%3D%3D#rd
-=======
 // 安装7zip解压及使用方法：
 # apt-get install p7zip
  解压：7zr x myfile.7z
  压缩：7zr e myfile.7z
->>>>>>> 06e1b0c7b53735cb4134ea9bcb1f9fa516ca1df3
 
 
 
