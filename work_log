@@ -175,8 +175,14 @@ monkey命令使用详解
 blog.csdn.net/huangbiao86/article/details/8490743
 
 -------------------git pull , svn checkout-------------------
-TODO:opencore sdk
+opencore sdk
  https://github.com/android/platform_external_opencore.git
 
 TODO : from daimajia，一个不错的view.
 https://github.com/daimajia/AndroidSwipeLayout.git
+
+开源项目集成：
+https://github.com/qdrzwd/android-open-project.git
+
+和代码家一个圈子的哥们的视频demo。估计是编译了opencore。
+https://github.com/qdrzwd/VideoRecorder.git
