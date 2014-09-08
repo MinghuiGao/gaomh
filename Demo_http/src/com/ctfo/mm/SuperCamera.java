@@ -31,6 +31,7 @@ public class SuperCamera implements IMultipleCamera {
 		startRecording.addCategory(Intent.CATEGORY_DEFAULT);
 //		mStringFilePath = Config.BASE_PATH +Config.CAMERA_FOLDER;
 		String folderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + Config.VIDEO_FOLDER;
+		System.out.println("folder path : "+ folderPath);
 		File cacheFolder = new File(folderPath);
 		if(!cacheFolder.exists()){
 			cacheFolder.mkdir();
@@ -123,4 +124,8 @@ public class SuperCamera implements IMultipleCamera {
 		
 	}
 
+	public String getFilePath(){
+		return this.mStringFilePath;
+	}
+	
 }

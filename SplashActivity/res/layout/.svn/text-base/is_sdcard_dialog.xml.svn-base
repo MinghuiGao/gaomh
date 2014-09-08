@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content">
+	
+	<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:gravity="center" android:background="@drawable/window_bg">
+		
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_weight="1"
+			android:textColor="#FFFFFF" android:textSize="16dip" android:gravity="center"
+			android:text="@string/app_isSdcard_no_msg"></TextView>
+			
+		<LinearLayout android:orientation="horizontal"
+			android:layout_weight="1.2" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<Button android:id="@+id/is_sdcard_yes" android:textColor="#FFFFFF"
+				android:background="@drawable/small_pic_button" 
+				android:text="@string/app_isSdcard_yes" 
+				android:layout_marginRight="15dip" 
+				android:textSize="14dip" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"/>
+			<Button android:id="@+id/is_sdcard_no" 
+				android:textColor="#FFFFFF"
+				android:background="@drawable/small_pic_button" 
+				android:text="@string/app_isSdcard_no" 
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:layout_marginLeft="15dip" 
+				android:textSize="14dip"
+				android:visibility="gone"/>
+		</LinearLayout>
+	</LinearLayout>
+</FrameLayout>

@@ -61,7 +61,7 @@ public class CameraActivity extends BaseDemoActivity{
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(data != null && data.getData() != null){
-			Toast.makeText(this, "save successfully!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "save successfully! : "+((SuperCamera)mIMultipleCamera).getFilePath(), Toast.LENGTH_SHORT).show();
 		}
 	}
 }
