@@ -1,12 +1,10 @@
 package com.ctfo;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
 import com.ctfo.mm.IMultipleCamera;
-import com.ctfo.mm.MultipleCamera;
 import com.ctfo.mm.SuperCamera;
 
 public class CameraActivity extends BaseDemoActivity{
