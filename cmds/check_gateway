@@ -1,0 +1,3 @@
+route -n
+#ip route show
+#netstat -r
