@@ -209,3 +209,21 @@ https://github.com/qdrzwd/android-open-project.git
 
 和代码家一个圈子的哥们的视频demo。估计是编译了opencore。
 https://github.com/qdrzwd/VideoRecorder.git
+
+------------------jni---------------------
+如何在jni中打log。
+第一步：在对应的mk文件中加入:LOCAL_LDLIBS := -llog
+第二步：在要使用LOG的cpp文件中加入：
+#include <android/log.h>
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "keymatch", __VA_ARGS__)
+第三步：这样就可以使用了：LOGD("我要看到的调试信息^_^");
+这样，在logcat端看到的输出是：
+D/keymatch（ 32）:我要看到的调试信息^_^
+如果想改变输出中的各项内容，可以参考相应颜色的标示，比如，如果想定义LOGE，就可以把上面的ANDROID_LOG_DEBUG改成ANDROID_LOG_ERROR，同理，LOGI神马的也都以此类推：
+
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, "ProjectName", __VA_ARGS__) 
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG , "ProjectName", __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO  , "ProjectName", __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN  , "ProjectName", __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , "ProjectName", __VA_ARGS__)
+当然，如果不嫌麻烦，也可以直接使用__android_log_print函数，而不define定义LOGxxx
