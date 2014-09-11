@@ -1,0 +1,10 @@
+基于分治思想，将一个任务拆分成若干个子任务，然后交个子线程（线程 池）去异步执行，同时将子任务添加到任务集合中。
+待最后一个人物执行完成后，迭代子任务集合，将其执行结果合并。
+如果例如Callable<Long> 可以作为一个子任务的执行单元， 并返回Long类型的结果，
+如果时其他场景，则应该具体问题具体分析，思考如何将子任务的执行结果进行合并。
+
+注意，在使用FutureTask的时候，获取返回结果，不要使用submit（）返回的Future<?>来get（），
+要使用FutureTask本身的get(),或者get(timeout,unit)，因为FutureTask<V>实现了Future<V>和Runable<V>。
+如果使用ExecutorService.submit(FutureTask)返回的Future<?>来get()的话，去出的结果为null。
+这样的好处是，可以通过迭代维护FutureTask的集合来获取子任务的返回结果，或者执行后的某种状态。
+而不需要通过处理子任务的返回结果来达到上述目的.

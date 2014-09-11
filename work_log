@@ -181,23 +181,22 @@ http://blog.csdn.net/ares1201/article/details/7737872
 www.cnblogs.com/hanyonglu/archive/2012/03/04/2378971.html
 www.cnblogs.com/hanyonglu/archive/2012/03/16/2399655.html
 
+androidpn-server-0.5.5-src 源码下载url:http://jaist.dl.sourceforge.net/project/androidpn/androidpn-server/
 
 
 
 
 
-
-
--------------------jishu jilei-------------------------------
+-------------------gaomh jishu -------------------------------
 java 泛型使用，编写一个组合Gson对像的json字符串解析类。
 
 
 
-------------------ceshi xiangguan --------------------------
+------------------gaomh ceshi xiangguan --------------------------
 monkey命令使用详解
 blog.csdn.net/huangbiao86/article/details/8490743
 
--------------------git pull , svn checkout-------------------
+-------------------gaomh git pull , svn checkout-------------------
 opencore sdk
  https://github.com/android/platform_external_opencore.git
 
@@ -210,7 +209,7 @@ https://github.com/qdrzwd/android-open-project.git
 和代码家一个圈子的哥们的视频demo。估计是编译了opencore。
 https://github.com/qdrzwd/VideoRecorder.git
 
-------------------jni---------------------
+------------------gaomh jni---------------------
 如何在jni中打log。
 第一步：在对应的mk文件中加入:LOCAL_LDLIBS := -llog
 第二步：在要使用LOG的cpp文件中加入：
