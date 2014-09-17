@@ -1,5 +1,9 @@
 <resources>
 
-    <color name="dialog_color">#FFFFFFFF</color>
-
+    <color name="white_100">#FFFFFFFF</color>
+	<color name="main_blue">#488AF6</color>
+	<color name="main_lighter_bottom">#F9F9F9</color>
+	<color name="main_darker_bottom">#E2EAFF</color>
+	
+	<color name="main_text_color">#FEFCFC</color>
 </resources>

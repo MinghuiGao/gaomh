@@ -2,17 +2,17 @@ package cn.gaomh.test;
 
 import java.io.File;
 
-import org.apache.http.Header;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.sample.R;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.sample.R;
+import com.loopj.android.http.sample.WaypointsActivity;
 
 /**
  * @author root
@@ -34,6 +34,8 @@ public class UploadTestActivity extends Activity implements OnClickListener {
 
 	private void init() {
 		findViewById(R.id.bt__open_video_folder).setOnClickListener(this);
+		findViewById(R.id.bt_view_sample).setOnClickListener(this);
+		
 		mListViewFiles = (ListView) findViewById(R.id.lv_videos);
 		
 		//find videos path.
@@ -43,7 +45,17 @@ public class UploadTestActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		uploadFile(mStringVideoPath);
+		switch (v.getId()) {
+		case R.id.bt_view_sample:
+			Intent intent = new Intent(UploadTestActivity.this,WaypointsActivity.class);
+			UploadTestActivity.this.startActivity(intent);
+			break;
+		case R.id.bt__open_video_folder:
+			uploadFile(mStringVideoPath);
+			break;
+		default:
+			break;
+		}
 	}
 	
 	/** upload file  input the filepath.
@@ -56,12 +68,12 @@ public class UploadTestActivity extends Activity implements OnClickListener {
 		}
 //		System.out.println("gaomh: "+uploadFile.getAbsolutePath() +uploadFile.length()); ---> find the file.
 //		reqeust url:
-//		http://192.168.0.104:8080/fileUpload/upload
+//		http://192.168.4.107:8080/fileUpload/upload
 //		enctype="multipart/form-data"
 //		<input name="videoFile" type = "file"/>
 		AsyncHttpClient client = new  AsyncHttpClient();
 		
-		client.post(this, "http://192.168.0.104:8080/fileUpload/upload", null, , contentType, responseHandler);
+//		client.post(this, "http://192.168.0.104:8080/fileUpload/upload", null, , contentType, responseHandler);
 		
 		
 		

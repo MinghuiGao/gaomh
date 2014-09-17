@@ -37,4 +37,28 @@
     <string name="title_401_unauth">401 basic authentication</string>
     <string name="title_pre_post_processing">Pre-/Post-processing</string>
     <string name="title_async_background_thread">Async on background thread</string>
+    
+    <!-- strings of app -->
+    <string name="hg_logo">行业管理项目</string>
+    <string name="hg_username">用户名:</string>
+    <string name="hg_username_hint">请输入用户名</string>
+    <string name="hg_pwd">密码:</string>
+    <string name="hg_pwd_hint">请输入密码</string>
+    <string name="hg_remember_me"></string>
+    <string name="hg_login">登录</string>
+    <string name="hg_cancle">取消</string>
+    <string name="hg_verification_code">验证码:</string>
+    <string name="hg_verification_code_hint">点击图片可刷新</string>
+    <string name="hg_logout">退出</string>
+    <string name="hg_demo_current_user">当前用户:admin</string>
+    
+    <string name="hg_RS002_002">企业信息查询</string>
+    <string name="hg_RS002_003">企业申请开业\n现场勘查管理</string>
+    <string name="hg_RS002_004">企业现场监管检查</string>
+    <string name="hg_RS002_005">维修质量纠纷\n现场取证</string>
+    <string name="hg_RS002_006">检查任务派送单</string>
+    <string name="hg_RS002_007">信息查询</string>
+    <string name="hg_RS002_008">打印</string>
+    
+    
 </resources>
