@@ -102,7 +102,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/hg_RS002_006" />
+                android:text="@string/hg_8_print" />
 
             <TextView
                 android:layout_width="0dip"

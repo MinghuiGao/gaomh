@@ -89,7 +89,7 @@
             android:layout_height="@dimen/heigh_login_button"
             android:layout_below="@id/ll_verification_code"
             android:layout_marginTop="20dip"
-            android:background="@color/main_text_color"
+            android:background="@color/main_lighter_bottom"
             android:text="@string/hg_login" />
     </RelativeLayout>
 
