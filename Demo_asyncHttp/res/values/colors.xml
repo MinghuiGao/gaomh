@@ -1,6 +1,7 @@
 <resources>
 
     <color name="white_100">#FFFFFFFF</color>
+	<color name="darker_grey">#4c4C4C</color>
 	<color name="main_blue">#488AF6</color>
 	<color name="main_lighter_bottom">#F9F9F9</color>
 	<color name="main_darker_bottom">#E2EAFF</color>

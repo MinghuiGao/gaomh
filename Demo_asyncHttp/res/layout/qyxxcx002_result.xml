@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_darker_bottom"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/ll_qyxxcx_header"
+        layout="@layout/header" />
+	<TextView 
+	    android:id="@+id/tv_result_title"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:textSize="@dimen/h2"
+	    android:text="@string/hg_2_text_result"
+	    android:layout_below="@id/ll_qyxxcx_header"
+	    android:layout_marginTop="10dip"
+	    android:textColor="@color/darker_grey"
+	    />
+	<TextView 
+	    android:id="@+id/tv_result_content"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:textSize="@dimen/h2"
+	    android:text="@string/hg_default_result"
+		android:layout_centerInParent="true"	    
+	    android:textColor="@color/darker_grey"
+	    />
+    
+    <Button
+        android:id="@+id/bt_qyxxcx_back"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_button_normal"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dip"
+        android:background="@color/main_blue"
+        android:text="@string/hg_back"
+        android:textColor="@color/white_100" />
+
+</RelativeLayout>
