@@ -1,0 +1,156 @@
+package com.daolicloud.box;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+
+/**
+ * 
+ * @author zhanli.yuan
+ *  BaseActivity类说明:Acitivty的子类 基础该类的子类必须实现onCreate 方法
+ *         在该类中注册了一个BroadcastReceiver 用于接收退出消息 在接收到消息之后结束自身
+ * 
+ *         -------------------------------- 使用 在自己所有的activity中继承该类
+ *         到需要退出程序的时候发送广播 Intent intent = new
+ *         Intent(context.getPackageName()+".ExitListenerReceiver");
+ * 
+ *         context.sendBroadcast(intent); 即可。
+ * 
+ *         退出程序
+ */
+public abstract class BaseActivity extends Activity {
+	public ExitListenerReceiver exitre = null;// 定义退出事件的广播接受者的引用
+
+	private LinearLayout ll_content;
+
+	private WindowManager manager;
+
+	private Display defaultDisplay;
+
+	private DisplayMetrics displayMetrics;
+
+	private float density;
+
+	private int densityDpi;
+
+	private int heightPixels;
+
+	private int widthPixels;
+	
+	@Override
+	public void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		//这样写不行……
+//		ll_content=(LinearLayout) findViewById(R.id.ll_content);
+		
+		regListener();
+		processData();
+		chooseDisplayMetrics();
+	}
+
+	/**
+	 * 处理数据
+	 */
+	public abstract void processData();
+	
+	/**
+	 * 对屏幕的分辨率及密度进行适配
+	 */
+	private void chooseDisplayMetrics(){
+		
+		manager = getWindowManager();
+		defaultDisplay = manager.getDefaultDisplay();
+		displayMetrics = new DisplayMetrics();
+		defaultDisplay.getMetrics(displayMetrics);
+		
+		density = displayMetrics.density;
+		densityDpi = displayMetrics.densityDpi;
+		heightPixels = displayMetrics.heightPixels;
+		widthPixels = displayMetrics.widthPixels;
+
+//		System.out.println("density : "+density);
+//		System.out.println("densityDpi :　"+densityDpi);
+//		System.out.println("heightPixels : "+heightPixels);
+//		System.out.println("widthPixels : "+widthPixels);
+		
+		//判断如果是高密度的屏幕且高分则设置成可横屏
+		double total = Math.sqrt(Math.pow(heightPixels, 2)+ Math.pow(widthPixels,2));
+		double physicalSize = total/densityDpi;
+		System.out.println("physicalSize : "+physicalSize);
+
+		//TODO 根据屏幕的情况，来设置登录按钮的位置
+		if(ll_content != null){
+			int height = ll_content.getHeight();
+			System.out.println("height ----> "+height);
+		}
+		
+		//将屏幕设置为横屏，或设置为自动检测。
+		if(densityDpi >= 160 && physicalSize >6){
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		}else{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		}
+	}
+	
+	/**
+	 * 注册广播接受者
+	 */
+	private void regListener() {
+		exitre = new ExitListenerReceiver();
+		IntentFilter intentfilter = new IntentFilter();
+		intentfilter.addAction(this.getPackageName() + "."
+				+ "ExitListenerReceiver");
+		this.registerReceiver(exitre, intentfilter);
+	}
+
+	/**
+	 * 解除注册监听
+	 */
+	private void unregisterListener() {
+		if (exitre != null) {
+			unregisterReceiver(exitre);
+			exitre = null;
+		}
+	}
+
+	/**
+	 * 定义退出事件的广播接受者
+	 * 
+	 * @author zhanli.yuan
+	 * 
+	 */
+	class ExitListenerReceiver extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context arg0, Intent arg1) {
+
+			((Activity) arg0).finish();
+
+		}
+
+	}
+
+	/**
+	 * 在Activity被销毁时，解除退出事件的广播监听
+	 */
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterListener();
+
+	}
+}
+
+interface ConponentCallback{
+	
+	int getHeight();
+}
+

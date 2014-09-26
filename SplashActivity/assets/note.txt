@@ -1,0 +1,117 @@
+				iv_add = new ImageView(MianActivity.this);
+				iv_add.setBackgroundResource(R.drawable.folder_add);
+//				LayoutParams params = iv_add.getLayoutParams();//---》nullpointerexception
+				LayoutParams params = new LayoutParams(dip2px(MianActivity.this, 40.0f), dip2px(MianActivity.this, 40.0f));//---》
+
+//				params.width = dip2px(MianActivity.this, 40.0f);// 需要像素和dp之间的转化。
+//				params.height = dip2px(MianActivity.this, 40.0f);// 需要像素和dp之间的转化。
+
+				iv_add.setLayoutParams(params);
+
+				//显然么有在此之前创建holder对象。。。。
+				
+//				Log.i(tag, "iv_add.layout---holder.x--"+holder.x+"----holder.y--"+holder.y);
+//				iv_add.layout(holder.x-40, holder.y-40, holder.x, holder.y);//显示tupian,--这里需要用到ontouch事件中获取的手指点击的坐标。
+			
+				//将开关打开。---需要有关闭的方法。
+				is_iv_add_created = true;
+//				sd_add2cloud.animateOpen();
+				isOpen = true;
+				
+				
+				// 父控件注册触摸事件----在这里搞个开关
+/*		lv_file.setOnTouchListener(new OnTouchListener() {
+
+			private int startX;
+			private int startY;
+			private int newx;
+			private int newy;
+			Display display = getWindowManager().getDefaultDisplay();
+
+			// 初始位置iv_drag----》调用是可能还没有初始化iv_add控件，以为是在onlongclick事件里生成的。
+			private int iv_drag_x = is_iv_add_created?iv_add.getLeft():0;
+			private int iv_drag_y = is_iv_add_created?iv_add.getTop():0;
+
+			private boolean flag = true;
+
+			int i = 0;
+
+			public boolean onTouch(View v, MotionEvent event) {
+				// myT = new MyThread();
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					startX = (int) event.getRawX();
+					startY = (int) event.getRawY();
+					holder = new Holder();
+					//存放点触摸点的坐标。
+					holder.x = startX;
+					holder.y = startY;
+					
+					if(is_iv_add_created){
+						msg = Message.obtain();
+						msg.what = 3;// 开启线程
+						handler.sendMessage(msg);
+					}
+					System.out.println("开始位置：" + startX + "   " + startY);
+					break;
+				case MotionEvent.ACTION_MOVE:
+					// 2、将该图片加上心跳动画，并设为半透明。
+					// flag = ;
+					// 在这里发送一个消息，在handMessage中用timertask定时执行。来执行心跳动画。或在子线程中执行。通过消息，来停止线程。这是在move动作中，只需要开启和停止线程即可。
+					// 需要起到一个开关的作用。move是变速高频执行的循环，如何设置一个与move生命周期相同的开关，并一次性发送出去。
+
+					// 重新获取触摸点的坐标
+					newx = (int) event.getRawX();
+					newy = (int) event.getRawY();
+					System.out.println("重新获取的位置：" + newx + "  " + newy);
+					// 计算偏移量
+					int dx = newx - startX;
+					int dy = (newy - startY);
+					// System.out.println("偏移量："+dx + "  " +dy);
+					int l = is_iv_add_created?iv_add.getLeft():0;
+					int t = is_iv_add_created?iv_add.getTop():0;
+					int r = is_iv_add_created?iv_add.getRight():0;
+					int b = is_iv_add_created?iv_add.getBottom():0;
+					// Log.i(tag, "l:"+l+" t:"+t+" r:"+r+" b"+b);
+
+					int newl = l + dx;
+					int newr = r + dx;
+					int newt = t + dy;
+					int newb = b + dy;
+					if (newr > display.getWidth() || newl < 0 || newt < 0
+							|| newb > display.getHeight() - 35) {
+						break;
+					}
+					if(is_iv_add_created)iv_add.layout(newl, newt, newr, newb);
+					// rl_content_last.draw(canvas);
+					// 更新手指在屏幕上的初始化的位置
+					startX = (int) event.getRawX();
+					startY = (int) event.getRawY();
+					break;
+				case MotionEvent.ACTION_UP:
+					// Log.i("padactivity", "action_up");
+					System.out.println("action_up");
+					// 动画停止
+					// myT.stopThread();
+					if(is_iv_add_created){
+						msg = Message.obtain();
+						msg.what = 4;
+						handler.sendMessage(msg);
+					}
+					//close draw
+//					sd_add2cloud.close();
+					if(isOpen){
+						sd_add2cloud.animateClose();
+						isOpen = false;
+					}
+//					sd_add2cloud.animateToggle();
+					Log.d("System.out", "stop thread");
+					// int lastx = ll_main.getLeft();
+					// int lasty = ll_main.getTop();
+					break;
+				}
+
+				return true;//------------------------------------------------------------------------------
+			}
+		});
+	*/

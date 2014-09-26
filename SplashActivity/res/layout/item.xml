@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/iv_file_pic"
+            android:layout_width="40dip"
+            android:layout_height="40dip" 
+            android:src="@drawable/ic_launcher"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_fileName"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_weight="1"
+        android:paddingRight="3dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_filename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="3dip"
+            android:layout_alignWithParentIfMissing="true"
+            android:text="name"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tv_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_filename"
+            android:layout_alignBottom="@+id/tv_filename"
+            android:layout_alignParentRight="true"
+            android:text="(12)"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="3dip"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/cb_select"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

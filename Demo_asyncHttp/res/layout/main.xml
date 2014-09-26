@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_darker_bottom"
+    android:orientation="vertical" >
+
+    <include 
+        android:id="@+id/ll_main_header"
+        layout="@layout/header" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bt_logout"
+        android:layout_below="@id/ll_main_header"
+        android:background="@null"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_first_line"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_RS002_002"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_002" />
+
+            <TextView
+                android:id="@+id/tv_RS002_003"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_003" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_second_line"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_RS002_004"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_004" />
+
+            <TextView
+                android:id="@+id/tv_RS002_005"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_005" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_third_line"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_RS002_006"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_006" />
+
+            <TextView
+                android:id="@+id/tv_RS002_007"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_RS002_007" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_forth_line"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_RS002_008"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hg_8_print" />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@id/bt_logout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_button_normal"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dip"
+        android:background="@color/main_blue"
+        android:text="@string/hg_logout"
+        android:textColor="@color/white_100" />
+
+</RelativeLayout>

@@ -169,16 +169,36 @@ http://www.cnblogs.com/chenqiang001/p/3479706.html
 
 // TODO : opencv中文网站，有不少资料。opencv可以录制视频，
 http://wiki.opencv.org.cn/index.php/%E9%A6%96%E9%A1%B5
--------------------jishu jilei-------------------------------
+
+// DOING : xmpp协议, androidpn-server ,android-client, openfire部署，spark测试
+
+openfire 部署测试，包括下载地址。按照/home/gaomh/Downloads/openfire_src/documentation/docs/index.html的文档编译部署成功。mysql数据库配置也ok。还差spark测试。
+但在android客户端上集成难度太大，openfire和spark的工程比较复杂...
+http://blog.csdn.net/ares1201/article/details/7737872
+
+推送相关的介绍，androidpn项目的介绍和部署步骤，包括下载地址。
+在/home/gaomh/Downloads下已经下载，部署成功，
+www.cnblogs.com/hanyonglu/archive/2012/03/04/2378971.html
+www.cnblogs.com/hanyonglu/archive/2012/03/16/2399655.html
+
+androidpn-server-0.5.5-src 源码下载url:http://jaist.dl.sourceforge.net/project/androidpn/androidpn-server/
+
+android中的动态加载机制 
+http://blog.csdn.net/jiangwei0910410003/article/details/17679823
+
+
+
+
+-------------------gaomh jishu -------------------------------
 java 泛型使用，编写一个组合Gson对像的json字符串解析类。
 
 
 
-------------------ceshi xiangguan --------------------------
+------------------gaomh ceshi xiangguan --------------------------
 monkey命令使用详解
 blog.csdn.net/huangbiao86/article/details/8490743
 
--------------------git pull , svn checkout-------------------
+-------------------gaomh git pull , svn checkout-------------------
 opencore sdk
  https://github.com/android/platform_external_opencore.git
 
@@ -190,3 +210,38 @@ https://github.com/qdrzwd/android-open-project.git
 
 和代码家一个圈子的哥们的视频demo。估计是编译了opencore。
 https://github.com/qdrzwd/VideoRecorder.git
+
+------------------gaomh jni---------------------
+如何在jni中打log。
+第一步：在对应的mk文件中加入:LOCAL_LDLIBS := -llog
+第二步：在要使用LOG的cpp文件中加入：
+#include <android/log.h>
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "keymatch", __VA_ARGS__)
+第三步：这样就可以使用了：LOGD("我要看到的调试信息^_^");
+这样，在logcat端看到的输出是：
+D/keymatch（ 32）:我要看到的调试信息^_^
+如果想改变输出中的各项内容，可以参考相应颜色的标示，比如，如果想定义LOGE，就可以把上面的ANDROID_LOG_DEBUG改成ANDROID_LOG_ERROR，同理，LOGI神马的也都以此类推：
+
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, "ProjectName", __VA_ARGS__) 
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG , "ProjectName", __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO  , "ProjectName", __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN  , "ProjectName", __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , "ProjectName", __VA_ARGS__)
+当然，如果不嫌麻烦，也可以直接使用__android_log_print函数，而不define定义LOGxxx
+
+  ——JobTessio公司(缘来日本）承办
+
+职    位：研究开发工程师，研究开发专家
+要    求：具有一定C++或Java编程能力的本科、硕士、博士。
+专    业：不限
+年    级：2015年、2016年毕业生
+（2014年9月份上大四、研二、研三。offer保留两年）
+语言能力：有一定英语能力
+工资待遇：第一年年薪为35万-40万人民币。
+（录用者公司可协助解决入籍上海户口）
+工作内容：主要是对本公司软件进行开发、升级。
+招聘人数：200人
+（由于公司今年拓展业务，所以将在新学期开始时进行全国范围补充招聘。）
+宣讲时间： 待 定
+面试时间： 待 定
+工作地点：日本东京、上海、新加坡(第1年在上海)            简历发送到2899494403@qq.com 

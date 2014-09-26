@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <SurfaceView
+        android:id="@+id/sv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="4" />
+
+    <LinearLayout
+        android:id="@+id/ll_btns"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        style="@android:attr/buttonBarStyle"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_start_recording"
+            android:layout_width="0dip"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="recording" />
+
+        <Button
+            android:id="@+id/bt_stop_and_save"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@android:attr/buttonBarButtonStyle"
+            android:text="stop N save" />
+
+        <Button
+            android:id="@+id/bt_upload"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_weight="1"
+            android:text="upload" />
+
+        <Button
+            android:id="@+id/bt_take_pic"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@android:attr/buttonBarButtonStyle"
+            android:text="take pic" />
+    </LinearLayout>
+
+</LinearLayout>

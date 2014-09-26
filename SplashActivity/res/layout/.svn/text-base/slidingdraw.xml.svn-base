@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+ <SlidingDrawer
+        android:id="@+id/sd_add2cloud"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:content="@+id/ll_datafromcloud"
+        android:handle="@+id/handle" >
+
+        <Button
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cloud" />
+
+        <LinearLayout
+            android:id="@+id/ll_datafromcloud"
+            android:layout_width="match_parent"
+            android:layout_height="200dip" >
+
+            <ListView
+                android:id="@+id/lv_datafromcloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ListView>
+        </LinearLayout>
+    </SlidingDrawer>
+    
+</LinearLayout>
