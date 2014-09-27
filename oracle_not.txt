@@ -12,3 +12,18 @@ sys默认:change_on_install
 SELECT * FROM ALL_TABLES;系统里有权限的表
 SELECT * FROM DBA_TABLES; 系统表
 SELECT * FROM USER_TABLES; 当前用户下的表
+
+1)、oracle sqlplus远程连接数据库：
+>sqlplus BJVMMIS/BJVMMIS_E8U4VN67@10.1.99.116:1521/ORCL
+
+2)、PL\SQL 配置连接：
+在oracle的安装目录的\network\admin中，打开tnsnames.ora文件，将下面的信息添加上，然后保存。（如果遇到只读不可修改的情况时，拷贝出来修改后在替换回去即可）。
+然后打开plsql选择书库ORCL_10.1.99.116，输入密码即可连接。
+ORCL_10.1.99.116 =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.1.99.116)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
