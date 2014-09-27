@@ -32,6 +32,7 @@ import org.apache.http.HttpEntity;
 
 import java.io.File;
 
+//get to file use for down load.
 public class FileSample extends SampleParentActivity {
     private static final String LOG_TAG = "FileSample";
 

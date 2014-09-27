@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_darker_bottom"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_login_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_blue"
+        android:padding="40dip" >
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hg_username"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/h3" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:layout_below="@id/tv_username"
+            android:background="@color/white_100"
+            android:hint="@string/hg_username_hint" />
+
+        <TextView
+            android:id="@+id/tv_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_username"
+            android:layout_marginTop="10dip"
+            android:text="@string/hg_pwd"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/h3" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:layout_below="@id/tv_pwd"
+            android:background="@color/white_100"
+            android:hint="@string/hg_pwd_hint" />
+
+        <TextView
+            android:id="@+id/tv_verification_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pwd"
+            android:layout_marginTop="10dip"
+            android:text="@string/hg_verification_code"
+            android:textColor="@color/main_text_color"
+            android:textSize="@dimen/h3" />
+
+        <LinearLayout
+            android:id="@+id/ll_verification_code"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:layout_below="@id/tv_verification_code"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_verification_code"
+                android:layout_width="0dip"
+                android:layout_height="@dimen/et_height"
+                android:layout_weight="2"
+                android:background="@color/white_100"
+                android:hint="@string/hg_verification_code_hint" />
+
+            <ImageView
+                android:id="@+id/iv_verification_code"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/verification" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/heigh_login_button"
+            android:layout_below="@id/ll_verification_code"
+            android:layout_marginTop="20dip"
+            android:background="@color/main_lighter_bottom"
+            android:text="@string/hg_login" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hg_logo"
+            android:textColor="@color/main_blue"
+            android:textSize="@dimen/h1" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -10,7 +10,7 @@
 	<p>
 	<H1>hello . i'm new here.</H1>
 	<form method="post" 
-	action="http://192.168.0.107:8080/gaomh3/upload"
+	action="http://192.168.4.238:8080/fileUpload/upload"
 	enctype="multipart/form-data"
 	>
 	Title : <input name="title" type="text"/><br/>

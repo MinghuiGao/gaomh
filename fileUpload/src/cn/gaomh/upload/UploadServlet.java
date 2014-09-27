@@ -59,8 +59,8 @@ public class UploadServlet extends HttpServlet {
 			ServletFileUpload fileUpload = new ServletFileUpload(
 					diskFileItemFactory);
 			fileUpload.setHeaderEncoding("utf-8");
-			List<FileItem> list = null;
-//			List<DiskFileItem> list = null; modified by gaomh if upload file from disk ,use DiskFileItem.
+//			List<FileItem> list = null;
+			List<DiskFileItem> list = null; //modified by gaomh if upload file from disk ,use DiskFileItem.
 			try {
 				list = fileUpload.parseRequest(request);
 			} catch (org.apache.commons.fileupload.FileUploadException e1) {
@@ -69,8 +69,8 @@ public class UploadServlet extends HttpServlet {
 			}
 			if (list != null) {
 
-				for (FileItem fileItem : list) {
-//				for(DiskFileItem fileItem : list){
+//				for (FileItem fileItem : list) {
+				for(DiskFileItem fileItem : list){
 					
 					if (fileItem.isFormField()) {
 						// 如果是表单数据，则做输出处理。

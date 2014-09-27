@@ -183,6 +183,8 @@ www.cnblogs.com/hanyonglu/archive/2012/03/16/2399655.html
 
 androidpn-server-0.5.5-src 源码下载url:http://jaist.dl.sourceforge.net/project/androidpn/androidpn-server/
 
+android中的动态加载机制 
+http://blog.csdn.net/jiangwei0910410003/article/details/17679823
 
 
 
@@ -226,3 +228,20 @@ D/keymatch（ 32）:我要看到的调试信息^_^
 #define LOGW(...) __android_log_print(ANDROID_LOG_WARN  , "ProjectName", __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , "ProjectName", __VA_ARGS__)
 当然，如果不嫌麻烦，也可以直接使用__android_log_print函数，而不define定义LOGxxx
+
+  ——JobTessio公司(缘来日本）承办
+
+职    位：研究开发工程师，研究开发专家
+要    求：具有一定C++或Java编程能力的本科、硕士、博士。
+专    业：不限
+年    级：2015年、2016年毕业生
+（2014年9月份上大四、研二、研三。offer保留两年）
+语言能力：有一定英语能力
+工资待遇：第一年年薪为35万-40万人民币。
+（录用者公司可协助解决入籍上海户口）
+工作内容：主要是对本公司软件进行开发、升级。
+招聘人数：200人
+（由于公司今年拓展业务，所以将在新学期开始时进行全国范围补充招聘。）
+宣讲时间： 待 定
+面试时间： 待 定
+工作地点：日本东京、上海、新加坡(第1年在上海)            简历发送到2899494403@qq.com 

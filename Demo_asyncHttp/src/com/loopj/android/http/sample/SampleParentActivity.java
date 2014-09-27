@@ -14,7 +14,7 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/
+ */
 
 package com.loopj.android.http.sample;
 
@@ -46,255 +46,280 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpRequest;
 import com.loopj.android.http.RequestHandle;
 import com.loopj.android.http.ResponseHandlerInterface;
 
-public abstract class SampleParentActivity extends Activity implements SampleInterface {
+public abstract class SampleParentActivity extends Activity implements
+		SampleInterface {
 
-    private AsyncHttpClient asyncHttpClient = new AsyncHttpClient() {
+	private AsyncHttpClient asyncHttpClient = new AsyncHttpClient() {
 
-      @Override
-      protected AsyncHttpRequest newAsyncHttpRequest(DefaultHttpClient client, HttpContext httpContext, HttpUriRequest uriRequest, String contentType, ResponseHandlerInterface responseHandler, Context context) {
-        AsyncHttpRequest httpRequest = getHttpRequest(client, httpContext, uriRequest, contentType, responseHandler, context);
-        return httpRequest == null
-            ? super.newAsyncHttpRequest(client, httpContext, uriRequest, contentType, responseHandler, context)
-            : httpRequest;
-      }
-    };
-    private EditText urlEditText, headersEditText, bodyEditText;
-    private LinearLayout responseLayout;
-    private final List<RequestHandle> requestHandles = new LinkedList<RequestHandle>();
+		@Override
+		protected AsyncHttpRequest newAsyncHttpRequest(
+				DefaultHttpClient client, HttpContext httpContext,
+				HttpUriRequest uriRequest, String contentType,
+				ResponseHandlerInterface responseHandler, Context context) {
+			AsyncHttpRequest httpRequest = getHttpRequest(client, httpContext,
+					uriRequest, contentType, responseHandler, context);
+			return httpRequest == null ? super.newAsyncHttpRequest(client,
+					httpContext, uriRequest, contentType, responseHandler,
+					context) : httpRequest;
+		}
+	};
+	private EditText urlEditText, headersEditText, bodyEditText;
+	private LinearLayout responseLayout;
+	private final List<RequestHandle> requestHandles = new LinkedList<RequestHandle>();
 
-    protected static final int LIGHTGREEN = Color.parseColor("#00FF66");
-    protected static final int LIGHTRED = Color.parseColor("#FF3300");
-    protected static final int YELLOW = Color.parseColor("#FFFF00");
-    protected static final int LIGHTBLUE = Color.parseColor("#99CCFF");
+	protected static final int LIGHTGREEN = Color.parseColor("#00FF66");
+	protected static final int LIGHTRED = Color.parseColor("#FF3300");
+	protected static final int YELLOW = Color.parseColor("#FFFF00");
+	protected static final int LIGHTBLUE = Color.parseColor("#99CCFF");
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.parent_layout);
-        setTitle(getSampleTitle());
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.parent_layout);
+		setTitle(getSampleTitle());
 
-        urlEditText = (EditText) findViewById(R.id.edit_url);
-        headersEditText = (EditText) findViewById(R.id.edit_headers);
-        bodyEditText = (EditText) findViewById(R.id.edit_body);
-        Button runButton = (Button) findViewById(R.id.button_run);
-        Button cancelButton = (Button) findViewById(R.id.button_cancel);
-        LinearLayout headersLayout = (LinearLayout) findViewById(R.id.layout_headers);
-        LinearLayout bodyLayout = (LinearLayout) findViewById(R.id.layout_body);
-        responseLayout = (LinearLayout) findViewById(R.id.layout_response);
+		urlEditText = (EditText) findViewById(R.id.edit_url);
+		headersEditText = (EditText) findViewById(R.id.edit_headers);
+		bodyEditText = (EditText) findViewById(R.id.edit_body);
+		Button runButton = (Button) findViewById(R.id.button_run);
+		Button cancelButton = (Button) findViewById(R.id.button_cancel);
+		LinearLayout headersLayout = (LinearLayout) findViewById(R.id.layout_headers);
+		LinearLayout bodyLayout = (LinearLayout) findViewById(R.id.layout_body);
+		responseLayout = (LinearLayout) findViewById(R.id.layout_response);
 
-        urlEditText.setText(getDefaultURL());
+		urlEditText.setText(getDefaultURL());
 
-        bodyLayout.setVisibility(isRequestBodyAllowed() ? View.VISIBLE : View.GONE);
-        headersLayout.setVisibility(isRequestHeadersAllowed() ? View.VISIBLE : View.GONE);
+		bodyLayout.setVisibility(isRequestBodyAllowed() ? View.VISIBLE
+				: View.GONE);
+		headersLayout.setVisibility(isRequestHeadersAllowed() ? View.VISIBLE
+				: View.GONE);
 
-        runButton.setOnClickListener(onClickListener);
-        if (cancelButton != null) {
-            if (isCancelButtonAllowed()) {
-                cancelButton.setVisibility(View.VISIBLE);
-                cancelButton.setOnClickListener(onClickListener);
-            } else {
-                cancelButton.setEnabled(false);
-            }
-        }
-    }
+		runButton.setOnClickListener(onClickListener);
+		if (cancelButton != null) {
+			if (isCancelButtonAllowed()) {
+				cancelButton.setVisibility(View.VISIBLE);
+				cancelButton.setOnClickListener(onClickListener);
+			} else {
+				cancelButton.setEnabled(false);
+			}
+		}
+	}
 
-    @Override
-    public AsyncHttpRequest getHttpRequest(DefaultHttpClient client, HttpContext httpContext, HttpUriRequest uriRequest, String contentType, ResponseHandlerInterface responseHandler, Context context) {
-        return null;
-    }
+	@Override
+	public AsyncHttpRequest getHttpRequest(DefaultHttpClient client,
+			HttpContext httpContext, HttpUriRequest uriRequest,
+			String contentType, ResponseHandlerInterface responseHandler,
+			Context context) {
+		return null;
+	}
 
-    public List<RequestHandle> getRequestHandles() {
-        return requestHandles;
-    }
+	public List<RequestHandle> getRequestHandles() {
+		return requestHandles;
+	}
 
-    @Override
-    public void addRequestHandle(RequestHandle handle) {
-        if (null != handle) {
-            requestHandles.add(handle);
-        }
-    }
+	@Override
+	public void addRequestHandle(RequestHandle handle) {
+		if (null != handle) {
+			requestHandles.add(handle);
+		}
+	}
 
-    public void onRunButtonPressed() {
-		addRequestHandle(executeSample(getAsyncHttpClient(),
-                getUrlText(getDefaultURL()),
-                getRequestHeaders(),
-                getRequestEntity(),
-                getResponseHandler()));
-    }
+	public void onRunButtonPressed() {
+		// 返回的handle用来cancle啊running request。
+		RequestHandle requestHandle = executeSample(getAsyncHttpClient(), getUrlText(getDefaultURL()),
+				getRequestHeaders(), getRequestEntity(), getResponseHandler());
+		addRequestHandle(requestHandle);
+	}
 
-    public void onCancelButtonPressed() {
-        asyncHttpClient.cancelRequests(SampleParentActivity.this, true);
-    }
+	public void onCancelButtonPressed() {
+		asyncHttpClient.cancelRequests(SampleParentActivity.this, true);
+	}
 
-    protected View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.button_run:
-                    onRunButtonPressed();
-                    break;
-                case R.id.button_cancel:
-                    onCancelButtonPressed();
-                    break;
-            }
-        }
-    };
+	protected View.OnClickListener onClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.button_run:
+				onRunButtonPressed();
+				break;
+			case R.id.button_cancel:
+				onCancelButtonPressed();
+				break;
+			}
+		}
+	};
 
-    public List<Header> getRequestHeadersList() {
-        List<Header> headers = new ArrayList<Header>();
-        String headersRaw = headersEditText.getText() == null ? null : headersEditText.getText().toString();
+	public List<Header> getRequestHeadersList() {
+		List<Header> headers = new ArrayList<Header>();
+		String headersRaw = headersEditText.getText() == null ? null
+				: headersEditText.getText().toString();
 
-        if (headersRaw != null && headersRaw.length() > 3) {
-            String[] lines = headersRaw.split("\\r?\\n");
-            for (String line : lines) {
-                try {
-                    int equalSignPos = line.indexOf('=');
-                    if (1 > equalSignPos) {
-                        throw new IllegalArgumentException("Wrong header format, may be 'Key=Value' only");
-                    }
+		if (headersRaw != null && headersRaw.length() > 3) {
+			String[] lines = headersRaw.split("\\r?\\n");
+			for (String line : lines) {
+				try {
+					int equalSignPos = line.indexOf('=');
+					if (1 > equalSignPos) {
+						throw new IllegalArgumentException(
+								"Wrong header format, may be 'Key=Value' only");
+					}
 
-                    String headerName = line.substring(0, equalSignPos).trim();
-                    String headerValue = line.substring(1 + equalSignPos).trim();
+					String headerName = line.substring(0, equalSignPos).trim();
+					String headerValue = line.substring(1 + equalSignPos)
+							.trim();
 
-                    headers.add(new BasicHeader(headerName, headerValue));
-                } catch (Throwable t) {
-                    Log.e("SampleParentActivity", "Not a valid header line: " + line, t);
-                }
-            }
-        }
-        return headers;
-    }
+					headers.add(new BasicHeader(headerName, headerValue));
+				} catch (Throwable t) {
+					Log.e("SampleParentActivity", "Not a valid header line: "
+							+ line, t);
+				}
+			}
+		}
+		return headers;
+	}
 
-    public Header[] getRequestHeaders() {
-        List<Header> headers = getRequestHeadersList();
-        return headers.toArray(new Header[headers.size()]);
-    }
+	public Header[] getRequestHeaders() {
+		List<Header> headers = getRequestHeadersList();
+		return headers.toArray(new Header[headers.size()]);
+	}
 
-    public HttpEntity getRequestEntity() {
-        String bodyText;
-        if (isRequestBodyAllowed() && (bodyText = getBodyText()) != null) {
-            try {
-                return new StringEntity(bodyText);
-            } catch (UnsupportedEncodingException e) {
-                Log.e("SampleParentActivity", "cannot create String entity", e);
-            }
-        }
-        return null;
-    }
+	public HttpEntity getRequestEntity() {
+		String bodyText;
+		if (isRequestBodyAllowed() && (bodyText = getBodyText()) != null) {
+			try {
+				return new StringEntity(bodyText);
+			} catch (UnsupportedEncodingException e) {
+				Log.e("SampleParentActivity", "cannot create String entity", e);
+			}
+		}
+		return null;
+	}
 
-    public String getUrlText() {
-        return getUrlText(null);
-    }
+	// gaomh 如果返回多媒体的实体，用这个方法。
+//	public HttpEntity getRequestEntity() {
+//		MultipartEntity multipartEntity = new MultipartEntity();
+//		File f = new File("");
+//		FileBody body = new FileBody(f);
+//		FormBodyPart fbp = new FormBodyPart("file", body);
+//
+//		multipartEntity.addPart(fbp);
+//		return multipartEntity;
+//	}
+	
+	public String getUrlText() {
+		return getUrlText(null);
+	}
 
-    public String getUrlText(String defaultText) {
-        return urlEditText != null && urlEditText.getText() != null
-            ? urlEditText.getText().toString()
-            : defaultText;
-    }
+	public String getUrlText(String defaultText) {
+		return urlEditText != null && urlEditText.getText() != null ? urlEditText
+				.getText().toString() : defaultText;
+	}
 
-    public String getBodyText() {
-        return getBodyText(null);
-    }
+	public String getBodyText() {
+		return getBodyText(null);
+	}
 
-    public String getBodyText(String defaultText) {
-        return bodyEditText != null && bodyEditText.getText() != null
-            ? bodyEditText.getText().toString()
-            : defaultText;
-    }
+	public String getBodyText(String defaultText) {
+		return bodyEditText != null && bodyEditText.getText() != null ? bodyEditText
+				.getText().toString() : defaultText;
+	}
 
-    public String getHeadersText() {
-        return getHeadersText(null);
-    }
+	public String getHeadersText() {
+		return getHeadersText(null);
+	}
 
-    public String getHeadersText(String defaultText) {
-        return headersEditText != null && headersEditText.getText() != null
-            ? headersEditText.getText().toString()
-            : defaultText;
-    }
+	public String getHeadersText(String defaultText) {
+		return headersEditText != null && headersEditText.getText() != null ? headersEditText
+				.getText().toString() : defaultText;
+	}
 
-    protected final void debugHeaders(String TAG, Header[] headers) {
-        if (headers != null) {
-            Log.d(TAG, "Return Headers:");
-            StringBuilder builder = new StringBuilder();
-            for (Header h : headers) {
-                String _h = String.format(Locale.US, "%s : %s", h.getName(), h.getValue());
-                Log.d(TAG, _h);
-                builder.append(_h);
-                builder.append("\n");
-            }
-            addView(getColoredView(YELLOW, builder.toString()));
-        }
-    }
+	protected final void debugHeaders(String TAG, Header[] headers) {
+		if (headers != null) {
+			Log.d(TAG, "Return Headers:");
+			StringBuilder builder = new StringBuilder();
+			for (Header h : headers) {
+				String _h = String.format(Locale.US, "%s : %s", h.getName(),
+						h.getValue());
+				Log.d(TAG, _h);
+				builder.append(_h);
+				builder.append("\n");
+			}
+			addView(getColoredView(YELLOW, builder.toString()));
+		}
+	}
 
-    protected static String throwableToString(Throwable t) {
-        if (t == null)
-            return null;
+	protected static String throwableToString(Throwable t) {
+		if (t == null)
+			return null;
 
-        StringWriter sw = new StringWriter();
-        t.printStackTrace(new PrintWriter(sw));
-        return sw.toString();
-    }
+		StringWriter sw = new StringWriter();
+		t.printStackTrace(new PrintWriter(sw));
+		return sw.toString();
+	}
 
-    protected final void debugThrowable(String TAG, Throwable t) {
-        if (t != null) {
-            Log.e(TAG, "AsyncHttpClient returned error", t);
-            addView(getColoredView(LIGHTRED, throwableToString(t)));
-        }
-    }
+	protected final void debugThrowable(String TAG, Throwable t) {
+		if (t != null) {
+			Log.e(TAG, "AsyncHttpClient returned error", t);
+			addView(getColoredView(LIGHTRED, throwableToString(t)));
+		}
+	}
 
-    protected final void debugResponse(String TAG, String response) {
-        if (response != null) {
-            Log.d(TAG, "Response data:");
-            Log.d(TAG, response);
-            addView(getColoredView(LIGHTGREEN, response));
-        }
-    }
+	protected final void debugResponse(String TAG, String response) {
+		if (response != null) {
+			Log.d(TAG, "Response data:");
+			Log.d(TAG, response);
+			addView(getColoredView(LIGHTGREEN, response));
+		}
+	}
 
-    protected final void debugStatusCode(String TAG, int statusCode) {
-        String msg = String.format(Locale.US, "Return Status Code: %d", statusCode);
-        Log.d(TAG, msg);
-        addView(getColoredView(LIGHTBLUE, msg));
-    }
+	protected final void debugStatusCode(String TAG, int statusCode) {
+		String msg = String.format(Locale.US, "Return Status Code: %d",
+				statusCode);
+		Log.d(TAG, msg);
+		addView(getColoredView(LIGHTBLUE, msg));
+	}
 
-    public static int getContrastColor(int color) {
-        double y = (299 * Color.red(color) + 587 * Color.green(color) + 114 * Color.blue(color)) / 1000;
-        return y >= 128 ? Color.BLACK : Color.WHITE;
-    }
+	public static int getContrastColor(int color) {
+		double y = (299 * Color.red(color) + 587 * Color.green(color) + 114 * Color
+				.blue(color)) / 1000;
+		return y >= 128 ? Color.BLACK : Color.WHITE;
+	}
 
-    protected View getColoredView(int bgColor, String msg) {
-        TextView tv = new TextView(this);
-        tv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        tv.setText(msg);
-        tv.setBackgroundColor(bgColor);
-        tv.setPadding(10, 10, 10, 10);
-        tv.setTextColor(getContrastColor(bgColor));
-        return tv;
-    }
+	protected View getColoredView(int bgColor, String msg) {
+		TextView tv = new TextView(this);
+		tv.setLayoutParams(new LinearLayout.LayoutParams(
+				ViewGroup.LayoutParams.MATCH_PARENT,
+				ViewGroup.LayoutParams.WRAP_CONTENT));
+		tv.setText(msg);
+		tv.setBackgroundColor(bgColor);
+		tv.setPadding(10, 10, 10, 10);
+		tv.setTextColor(getContrastColor(bgColor));
+		return tv;
+	}
 
-    protected final void addView(View v) {
-        responseLayout.addView(v);
-    }
+	protected final void addView(View v) {
+		responseLayout.addView(v);
+	}
 
-    protected final void clearOutputs() {
-        responseLayout.removeAllViews();
-    }
+	protected final void clearOutputs() {
+		responseLayout.removeAllViews();
+	}
 
-    public boolean isCancelButtonAllowed() {
-        return false;
-    }
+	public boolean isCancelButtonAllowed() {
+		return false;
+	}
 
-    public AsyncHttpClient getAsyncHttpClient() {
-        return this.asyncHttpClient;
-    }
+	public AsyncHttpClient getAsyncHttpClient() {
+		return this.asyncHttpClient;
+	}
 
-    @Override
-    public void setAsyncHttpClient(AsyncHttpClient client) {
-        this.asyncHttpClient = client;
-    }
+	@Override
+	public void setAsyncHttpClient(AsyncHttpClient client) {
+		this.asyncHttpClient = client;
+	}
 }

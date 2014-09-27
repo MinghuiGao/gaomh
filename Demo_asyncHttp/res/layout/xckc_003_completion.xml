@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_darker_bottom"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/ll_xckc_header"
+        layout="@layout/header" />
+
+    <TextView
+        android:id="@+id/tv_inspection_res_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_xckc_header"
+        android:layout_marginTop="10dip"
+        android:gravity="center_horizontal"
+        android:text="@string/hg_3_inpsection_res_review"
+        android:textColor="@color/darker_grey"
+        android:textSize="@dimen/h2" />
+
+    <TextView
+        android:id="@+id/tv_def_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/hg_default_result"
+        android:textColor="@color/darker_grey"
+        android:textSize="@dimen/h2" />
+
+    <LinearLayout
+        android:id="@+id/ll_btns"
+        style="@android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_header"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/bt_abandon"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_3_abandon"
+            android:textColor="@color/white_100" />
+
+        <include layout="@layout/devider_vertical" />
+
+        <Button
+            android:id="@+id/bt_comfirm"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_3_confirm"
+            android:textColor="@color/white_100" />
+    </LinearLayout>
+
+</RelativeLayout>

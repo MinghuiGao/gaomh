@@ -37,6 +37,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
+// gaomh change the FutureTask<RequestHandle> from FutureTask<> .
 public class AsyncBackgroundThreadSample extends SampleParentActivity {
     private static final String LOG_TAG = "AsyncBackgroundThreadSample";
 
@@ -52,7 +53,7 @@ public class AsyncBackgroundThreadSample extends SampleParentActivity {
     public RequestHandle executeSample(final AsyncHttpClient client, final String URL, final Header[] headers, HttpEntity entity, final ResponseHandlerInterface responseHandler) {
 
         final Activity ctx = this;
-        FutureTask<RequestHandle> future = new FutureTask<>(new Callable<RequestHandle>() {
+        FutureTask<RequestHandle> future = new FutureTask<RequestHandle>(new Callable<RequestHandle>() {
             public RequestHandle call() {
                 Log.d(LOG_TAG, "Executing GET request on background thread");
                 return client.get(ctx, URL, headers, null, responseHandler);
@@ -96,7 +97,7 @@ public class AsyncBackgroundThreadSample extends SampleParentActivity {
     @Override
     public ResponseHandlerInterface getResponseHandler() {
 
-        FutureTask<ResponseHandlerInterface> future = new FutureTask<>(new Callable<ResponseHandlerInterface>() {
+        FutureTask<ResponseHandlerInterface> future = new FutureTask<ResponseHandlerInterface>(new Callable<ResponseHandlerInterface>() {
 
             @Override
             public ResponseHandlerInterface call() throws Exception {

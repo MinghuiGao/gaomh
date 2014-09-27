@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_darker_bottom"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/ll_xckc_header"
+        layout="@layout/header" />
+
+    <TextView
+        android:id="@+id/tv_step_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_xckc_header"
+        android:gravity="center"
+        android:text="企业现场监管检查"
+        android:textColor="@color/darker_grey"
+        android:textSize="@dimen/h1" />
+
+    <TextView
+        android:id="@+id/tv_step_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_step_title"
+        android:text="经营资质 (已完成2项,共52项)"
+        android:textColor="@color/darker_grey"
+        android:textSize="@dimen/h3" />
+
+    <TextView
+        android:id="@+id/tv_step_guide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_step_info"
+        android:layout_marginTop="10dip"
+        android:background="#FBEC88"
+        android:text="是否按规定配备维修和检测设备"
+        android:textColor="@color/darker_grey"
+        android:textSize="@dimen/h2" />
+
+    <RadioGroup
+        android:id="@+id/rg_inspection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_step_guide"
+        android:layout_marginTop="10dip"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip" >
+
+            <RadioButton
+                android:id="@+id/rb_qualified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合格" />
+
+            <RadioButton
+                android:id="@+id/rb_unqualified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:checked="true"
+                android:text="不合格" />
+        </RelativeLayout>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_unqualified_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_btns"
+        android:layout_below="@id/rg_inspection"
+        android:layout_margin="5dip"
+        android:background="@color/white_100"
+        android:gravity="top|left"
+        android:hint="请录入检查不合格详细信息" />
+
+    <LinearLayout
+        android:id="@id/ll_btns"
+        style="@android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_header"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/bt_print"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_8_print"
+            android:textColor="@color/white_100" />
+
+        <include layout="@layout/devider_vertical" />
+
+        <Button
+            android:id="@+id/bt_obtain_evidence"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_3_obtain_evidence"
+            android:textColor="@color/white_100" />
+
+        <include layout="@layout/devider_vertical" />
+
+        <Button
+            android:id="@+id/bt_pre_step"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_3_pre_step"
+            android:textColor="@color/white_100" />
+
+        <include layout="@layout/devider_vertical" />
+
+        <Button
+            android:id="@+id/bt_next_step"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/main_blue"
+            android:text="@string/hg_3_next_step"
+            android:textColor="@color/white_100" />
+    </LinearLayout>
+
+</RelativeLayout>
