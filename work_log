@@ -100,6 +100,14 @@ JIRA内网及外网地址：
 邮件地址：
 https://114.242.113.72/owa/
 
+内网-------http://10.1.99.3:9000/svn/techdep/60.北京市机动车维修管理服务系统
+外网-------http://114.242.113.80:9000/svn/techdep/60.北京市机动车维修管理服务系统
+
+外包svn地址
+内网-------http://10.1.99.3:9000/svn/techdep/60.北京市机动车维修管理服务系统/01开发区/source
+外网-------http://114.242.113.80:9000/svn/techdep/60.北京市机动车维修管理服务系统/01开发区/source
+
+
 =====================================
 use the follow commands to config the git account.
 	#  git config --global user.email "ham_777@126.com"
@@ -148,6 +156,9 @@ Cindent:是特别针对C语言自动缩进。
 
 
 -------------------gaomh blog---------------------------------
+如何在Ubuntu上配置Tomcat集群？
+http://os.51cto.com/art/201406/444014.htm
+
 // TODO : follow him ,此人略牛屁。
 yanzi1225627的专栏
 //用TextureView播放视频。// TODO : clone the project.
