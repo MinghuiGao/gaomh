@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.ctfo.domain.Inquest" table="inquest">
+		<id name="inquestId" column="inquest_id" type="java.lang.Integer">
+			<generator class="increment">
+			</generator>
+		</id>
+		<property name="result" column="result" type="java.lang.String" />
+		<property name="date" column="date" type="java.lang.String" />
+		<many-to-one name="companyInfo" class="cn.ctfo.domain.CompanyInfo">
+			<column name="companyId" />
+		</many-to-one>
+<!-- 		<set name="inquests" table="inquest" cascade="delete" inverse="true"
+			fetch="select" lazy="false">
+			<key>
+				<column name="companyId" />
+			</key>
+			<one-to-many class="cn.ctfo.domain.Inquest" />
+		</set> -->
+		<set name="attachments" table="attachment" cascade="delete" inverse="true" fetch="select" lazy="false">
+			<key>
+				<column name="inquestId"/>
+			</key>
+			<one-to-many class="cn.ctfo.domain.Attachment"/>
+		</set>
+	</class>
+</hibernate-mapping>

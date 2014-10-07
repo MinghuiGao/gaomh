@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- private Integer attachmentId; private String path; private String fileName; 
+	private String extension; private String detail; -->
+<hibernate-mapping>
+	<class name="cn.ctfo.domain.Attachment" table="attachment">
+		<id name="attachmentId" column="attachment_id" type="java.lang.Integer">
+			<generator class="increment" />
+		</id>
+		<property name="path" column="path" type="java.lang.String" />
+		<property name="fileName" column="file_name" type="java.lang.String" />
+		<property name="extension" column="ext" type="java.lang.String" />
+		<property name="detail" column="detail" type="java.lang.String" />
+		
+		<many-to-one name="inquest" class="cn.ctfo.domain.Inquest" lazy="false">
+			<column name="inquestId" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

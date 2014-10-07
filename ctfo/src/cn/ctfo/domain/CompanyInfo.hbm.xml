@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.ctfo.domain.CompanyInfo" table="company_info">
+		<id name="companyId" column="company_id" type="java.lang.Integer">
+			<generator class="increment" />
+		</id>
+		<property name="companyName" column="company_name" type="java.lang.String" />
+		<property name="companyAddress" column="company_address"
+			type="java.lang.String" />
+			<!--   ont to many  -->
+		<set name="inquests" table="inquest" cascade="delete" inverse="true"
+			fetch="select" lazy="false">
+			<key>
+				<column name="companyId" />
+			</key>
+			<one-to-many class="cn.ctfo.domain.Inquest" />
+		</set>
+	</class>
+
+</hibernate-mapping>
