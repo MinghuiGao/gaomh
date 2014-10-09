@@ -1,0 +1,3 @@
+nux用iconv命令，如乱码文件名为shujujiegou.txt，那么在终端输入如下命令：
+iconv -f gbk -t utf8 shujujiegou.txt > shujujiegou.txt.utf8 
+即可。
