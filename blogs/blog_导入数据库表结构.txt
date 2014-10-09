@@ -1,0 +1,50 @@
+1、获取pdm，通过powerdisgner生成数据库脚本。
+	先在“database”菜单中选择generase database，生成脚本。
+	然后在命令行下：sqlplus username/password;
+	导入命令：sql>@${全路径}xxx.sql;
+2、导入sql脚本，需要用dba登录后创建。
+	先用dba用户给某个用户授权，然后在登录到该用户下，创建数据库结构。
+	授权命令：SQL> grant connect, resource, dba to 用户名1 [,用户名2]...;	
+	a: 以sysdba的身份登录oracle
+		c:>sqlplus 用户名/密码
+		(用sys用户，完整密码为：change_on_install as sysdba)
+=========================================================================
+1、系统权限分类：
+DBA: 拥有全部特权，是系统最高权限，只有DBA才可以创建数据库结构。
+
+RESOURCE:拥有Resource权限的用户只可以创建实体，不可以创建数据库结构。
+
+CONNECT:拥有Connect权限的用户只可以登录Oracle，不可以创建实体，不可以创建数据库结构。
+
+对于普通用户：授予connect, resource权限。
+对于DBA管理用户：授予connect，resource, dba权限。
+
+
+2、系统权限授权命令：
+[系统权限只能由DBA用户授出：sys, system(最开始只能是这两个用户)]
+授权命令：SQL> grant connect, resource, dba to 用户名1 [,用户名2]...;
+
+[普通用户通过授权可以具有与system相同的用户权限，但永远不能达到与sys用户相同的权限，system用户的权限也可以被回收。]
+
+例：
+SQL> connect system/manager
+SQL> Create user user50 identified by user50;
+SQL> grant connect, resource to user50;
+
+查询用户拥有哪里权限：
+SQL> select * from dba_role_privs;
+SQL> select * from dba_sys_privs;
+SQL> select * from role_sys_privs;
+
+删除用户：SQL> drop user 用户名 cascade; //加上cascade则将用户连同其创建的东西全部删除
+=========================================================================
+3、myeclipse中，通过表结构，生成相关的实体和映射文件。
+
+	a: 在myeclipse中链接数据库。在DB Browser中-》右键new-》配置数据库驱动，选择Oracle（Thin driver）配置相关的数据库连接属性，包括数据库名称，url，用户名，密码等。添加驱动jar包，目录：D:\app\dell\product\11.1.0\db_1\jdbc\lib\ojdbc6.jar。（到oracle的安装目录下找）。接下来测试链接，测试成功，点完成。
+	b：在DB Browser中选中刚创建的数据库驱动，open another connection,选到对应的用户下，打开TABLE，然后选中相关的表，或者将整个库的表全选，然后右键选择Hibernate Reverse Engineering....
+	c：可以配置生成的代码的存放路径，然后可以指定实体存放的报名。还有三个可选框，分别是create POJO<>DB Table mapping information(生成hnm映射文件);Java Data Object（实体类）;DAO。而且也可以分批次生成，比如需要将pojo放到一个包下，将DAO实现放到一个包下。点next，可以配置自定义反向工程的策略（Custom rev-eng strategy），这里选择默认就好。下面的一些类型映射，保持默认就ok点击next。点击要反向工程的表，可以配置该表对应的实体类的Class name,和主键的生成策略（Id Generator)。还有一些多选框，目前还没有研究。点击finish，即可生成。
+
+
+
+
+

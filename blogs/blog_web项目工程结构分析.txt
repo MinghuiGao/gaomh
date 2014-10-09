@@ -1,0 +1,3 @@
+Eclipse和MyEclipse工程描述符.classpath和.project和.mymetadata详解（转）
+
+http://blog.sina.com.cn/s/blog_7c1e501501011opf.html
