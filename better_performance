@@ -1,0 +1,59 @@
+静态方法代替虚拟方法
+public static void test1(){
+        for(int i = 0;i < 10000;i ++){
+            SimpleDateFormat sdf = new SimpleDateFormat();
+            sdf.applyPattern("yyyy.MM.dd G 'at' HH:mm:ss z");
+//          System.out.println(sdf.format(new Date()));
+        }
+    }
+    
+    public void test2(){
+        for(int i = 0;i < 10000;i ++){
+            SimpleDateFormat sdf = new SimpleDateFormat();
+            sdf.applyPattern("yyyy.MM.dd G 'at' HH:mm:ss z");
+//          System.out.println(sdf.format(new Date()));
+        }
+    }   
+避免内部Getters/Setters
+将成员缓存到本地,访问成员变量比访问本地变量慢得多.
+public void test3(String str){
+        long start = System.currentTimeMillis();
+        for(int i=0;i<50000;i++){
+            name.substring(0, name.lastIndexOf(":"));
+            name.charAt(100);
+            name.contains("content");
+            name.compareTo("sdfasf");
+            name.concat("gaomh");
+            name.codePointBefore(100);
+        }
+        System.out.println("cost 3 : " + (System.currentTimeMillis()-start));
+    }
+    
+    public void test4(){
+        long start = System.currentTimeMillis();
+        String name = this.name;
+        for(int i=0;i<50000;i++){
+            name.substring(0, name.lastIndexOf(":"));
+            name.charAt(100);
+            name.contains("content");
+            name.compareTo("sdfasf");
+            name.concat("gaomh");
+            name.codePointBefore(100);
+        }
+        System.out.println("cost 4 : " + (System.currentTimeMillis()-start));
+    }
+
+ 避免使用浮点数,有的芯片拥有硬件乘法，却缺少除法,a/2可以换成a*0.5.
+
+->了解并使用类库
+很多人抱怨Android处理底层I/O性能不是很理想，如果不想使用NDK则可以通过MemoryFile类实现高性能的文件读写操作。
+
+MemoryFile适用于哪些地方？
+对于I/O需要频繁操作的，主要是和外部存储相关的I/O操作，MemoryFile通过将 NAND或SD卡上的文件，分段映射到内存中进行修改处理，这样就用高速的RAM代替了ROM或SD卡，性能自然提高不少，对于Android手机而言同时还减少了电量消耗。该类实现的功能不是很多，直接从Object上继承，通过JNI的方式直接在C底层执行。
+
+复杂算法尽量用C或者C++完成，然后用JNI调用。
+
+////////////////////
+技术内幕：Android对Linux内核的增强
+Ashmem(匿名内存共享)
+///////////////////

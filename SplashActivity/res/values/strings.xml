@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DaolicloudboxActivity!</string>
+    <string name="app_name">DaoliCloudbox</string>
+    <string name="cloud">云端</string>
+    <string name="setting">设 置</string>
+    <string name="back2main">返 回</string>
+    <string name="login">登   录</string>
+    <string name="app_isSdcard_no_msg">sd卡不可用，请插入sd卡</string>
+    <string name="app_isSdcard_yes">退出</string>
+    <string name="app_isSdcard_no">继续进入</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="remember">记住我</string>
+    <string name="forget">忘记密码?</string>
+    <string name="add2cloud">上传</string>
+    <string name="selectAll">全选</string>
+    <string name="selectAllCancle">取消全选</string>
+    <string name="about">关于</string>
+    <string name="version">版本</string>
+    <string name="content_from_phone">手机本地内容</string>
+    <string name="backUp">返 回</string>
+    <string name="changeanotherone"><u>换一张</u></string>
+
+</resources>

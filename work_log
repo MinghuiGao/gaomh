@@ -1,0 +1,259 @@
+_26：
+    阅读项目文档，开发移动端框架，于服务器接口进行交互。
+
+8_27:
+硅步科技，gis 开发者论坛，如果需要用他的GIS sdk。
+www.creable.cn/bbs/index.asp?boardid=3&TopicMode=0&List_Type=&Page=1
+
+//servlet 测试搭建。
+http://blog.csdn.net/htttw/article/details/7596232
+http://blog.csdn.net/x_white/article/details/11770785
+
+get the system setting back.
+#apt-get install ubuntu-desktop
+
+solve the porblem of cant open adt.
+#apt-get install lib32ncurses5 lib32bz2-1.0 lib32z1
+solve the problem of cant find the share library of libstdc++6
+#apt-get install libstdc++6-4.4-dev (maybe not needed...)
+#apt-get install lib32stdc++6
+if the two install commands are not useful ,try to install gcc.
+#apt-get install gcc-4.7
+
+修改eclipse提示框颜色
+修改 /usr/share/themes/Ambiance/gtk-2.0/gtkrc 中的tooltip_fg_color为#121212 和 tooltip_bg_color ##F1F1D3。
+
+shutdown the mongo db server:
+# mongo
+> use admin --- > switch to the admin user.
+> db.shutdownServer()
+ok!
+
+
+===========unresolved.===================
+ubuntu下eclipse安装subclipse之后使用javaHL作为连接器会出现一下错误：
+	Failed to load JavaHL Library.
+	These are the errors that were encountered:
+	no libsvnjavahl-1 in java.library.path
+	no svnjavahl-1 in java.library.path
+	no svnjavahl in java.library.path
+	java.library.path = /usr/lib/jvm/java-6-sun-1.6.0.20/jre/lib/i386/client:/usr/lib/jvm/java-6-sun-1.6.0.20/jre/lib/i386:/usr/lib/xulrunner-addons:/usr/lib/xulrunner-addons:/usr/java/packages/lib/i386:/lib:/usr/lib
+===========unresolved.===================
+
+to sovle svn project locked.
+SVN错误：Attempted to lock an already-locked dir
+出现这个问题后使用“清理”功能，如果还不行，就直接到上一级目录，再执行“清理”，然后再“更新”。
+
+================http 使用curl发起https请求========not finish read.
+http://www.cnblogs.com/ainiaa/archive/2011/11/08/2241385.html
+
+linux 下： 删除 ~/.subversion/auth （命令：rm -rf ~/.subversion/auth）
+
+
+/////////////////////////////////
+java 内部类，及内部类与静态内部类的使用及区别。
+http://blog.csdn.net/jiangxinyu/article/details/8177326
+////////////////////////////////
+
+//TODO：java注解，如果感兴趣的话。。。
+blog.csdn.net/yixiaogang109/article/details/7328466
+
+适配器模式: 分为类适配和对像适配。
+类适配，就是继承被适配的类，实现适配接口，将被适配的类中的方法重新公布到适配接口方法中去，
+对像适配，在适配器中保存一个被适配对像的实例。实现适配接口或重新公布方法。
+
+//// TODO: install sqlite3 on ubuntu :
+apt-get install sqlite3
+# sqlite3 -version
+# sqlite3 test.db
+# sqlite3 ---> enter the command line.
+
+// TODO : GUI of sqlite3 
+# apt-get install sqlitebrowser
+# apt-get install sqliteman
+
+// TODO : install mongodb on ubuntu.
+
+
+// TODO : Thread类中start() 和 run() 方法的区别？
+
+// TODO : java thread questions --> http://mp.weixin.qq.com/s?sid=AZukVwRggJIqIlXebpF2GIOl&sn=3b032d70b6f7647c77ecb9cf548d15dc&mid=200313947&idx=1&scene=3&__biz=MzA4MDExNzQxNA%3D%3D#rd
+// 安装7zip解压及使用方法：
+# apt-get install p7zip
+ 解压：7zr x myfile.7z
+ 压缩：7zr e myfile.7z
+
+
+
+
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>communicate<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+JIRA内网及外网地址：
+内网：http://10.1.99.3:8000/secure/Dashboard.jspa 
+        外网：http://114.242.113.83:8000/secure/Dashboard.jspa 
+
+邮件地址：
+https://114.242.113.72/owa/
+
+内网-------http://10.1.99.3:9000/svn/techdep/60.北京市机动车维修管理服务系统
+外网-------http://114.242.113.80:9000/svn/techdep/60.北京市机动车维修管理服务系统
+
+外包svn地址
+内网-------http://10.1.99.3:9000/svn/techdep/60.北京市机动车维修管理服务系统/01开发区/source
+外网-------http://114.242.113.80:9000/svn/techdep/60.北京市机动车维修管理服务系统/01开发区/source
+
+
+=====================================
+use the follow commands to config the git account.
+	#  git config --global user.email "ham_777@126.com"
+  #  git config --global user.name "gaomh"
+===============修改vim属性============
+/etc/vim/vimrc
+set tabstop=4  
+set expandtab ---> 将tab转换为空格，避免python编辑时出现对齐失败。
+
+
+
+在.vimrc中添加以下代码后，重启vim即可实现按TAB产生4个空格：
+set ts=4  (注：ts是tabstop的缩写，设TAB宽4个空格)
+set expandtab
+
+对于已保存的文件，可以使用下面的方法进行空格和TAB的替换：
+TAB替换为空格：
+:set ts=4
+:set expandtab
+:%retab!
+
+空格替换为TAB：
+:set ts=4
+:set noexpandtab
+:%retab!
+
+加!是用于处理非空白字符之后的TAB，即所有的TAB，若不加!，则只处理行首的TAB。
+
+
+
+在.vimrc文件中输入如下文本:
+set tabstop=4 
+set softtabstop=4 
+set shiftwidth=4 
+set noexpandtab 
+set nu 
+set autoindent 
+set cindent 
+
+其中:Tabstop:表示一个 tab 显示出来是多少个空格的长度,默认 8。 
+Softtabstop:表示在编辑模式的时候按退格键的时候退回缩进的长度,当使用 expandtab 时特别有用。 
+Shiftwidth:表示每一级缩进的长度,一般设置成跟 softtabstop 一样。 当设置成 expandtab 时,缩进用空格来表示noexpandtab 则是用制表符表示一个缩进。 
+Nu:表示显示行号。 
+Autoindent:表示自动缩进。 
+Cindent:是特别针对C语言自动缩进。 
+
+
+-------------------gaomh blog---------------------------------
+如何在Ubuntu上配置Tomcat集群？
+http://os.51cto.com/art/201406/444014.htm
+
+// TODO : follow him ,此人略牛屁。
+yanzi1225627的专栏
+//用TextureView播放视频。// TODO : clone the project.
+ https://github.com/ash-gupta/MyTestVideoView
+
+如何成为Ubuntu开发者:简介
+http://www.linuxeden.com/html/news/20110201/106616.html
+
+opencore初学分析：
+blog.csdn.net/stefzeus/article/details/6544451
+
+monkey命令使用详解
+blog.csdn.net/huangbiao86/article/details/8490743
+// TODO : 测试这些脚本，尝试自己编写。
+http://www.cnblogs.com/youxilua/archive/2011/11/12/2246576.html
+
+ubuntu下使用goagent，goagent已经下载到gaomh_dell.
+http://www.cnblogs.com/chenqiang001/p/3479706.html
+
+// TODO : opencv中文网站，有不少资料。opencv可以录制视频，
+http://wiki.opencv.org.cn/index.php/%E9%A6%96%E9%A1%B5
+
+// DOING : xmpp协议, androidpn-server ,android-client, openfire部署，spark测试
+
+openfire 部署测试，包括下载地址。按照/home/gaomh/Downloads/openfire_src/documentation/docs/index.html的文档编译部署成功。mysql数据库配置也ok。还差spark测试。
+但在android客户端上集成难度太大，openfire和spark的工程比较复杂...
+http://blog.csdn.net/ares1201/article/details/7737872
+
+推送相关的介绍，androidpn项目的介绍和部署步骤，包括下载地址。
+在/home/gaomh/Downloads下已经下载，部署成功，
+www.cnblogs.com/hanyonglu/archive/2012/03/04/2378971.html
+www.cnblogs.com/hanyonglu/archive/2012/03/16/2399655.html
+
+androidpn-server-0.5.5-src 源码下载url:http://jaist.dl.sourceforge.net/project/androidpn/androidpn-server/
+
+android中的动态加载机制 
+http://blog.csdn.net/jiangwei0910410003/article/details/17679823
+
+
+
+
+-------------------gaomh jishu -------------------------------
+java 泛型使用，编写一个组合Gson对像的json字符串解析类。
+
+default，默认的访问权限，也是可以省略的访问权限，它不仅能在设置了该权限的类中访问，也可以在同一包中的类或子类中访问。
+protected，受保护的访问权限，它除了具有default的访问权限外，还可以在不同包中所继承的子类访问。
+
+------------------gaomh ceshi xiangguan --------------------------
+monkey命令使用详解
+blog.csdn.net/huangbiao86/article/details/8490743
+
+-------------------gaomh git pull , svn checkout-------------------
+opencore sdk
+ https://github.com/android/platform_external_opencore.git
+
+TODO : from daimajia，一个不错的view.
+https://github.com/daimajia/AndroidSwipeLayout.git
+
+开源项目集成：
+https://github.com/qdrzwd/android-open-project.git
+
+和代码家一个圈子的哥们的视频demo。估计是编译了opencore。
+https://github.com/qdrzwd/VideoRecorder.git
+
+------------------gaomh jni---------------------
+如何在jni中打log。
+第一步：在对应的mk文件中加入:LOCAL_LDLIBS := -llog
+第二步：在要使用LOG的cpp文件中加入：
+#include <android/log.h>
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG, "keymatch", __VA_ARGS__)
+第三步：这样就可以使用了：LOGD("我要看到的调试信息^_^");
+这样，在logcat端看到的输出是：
+D/keymatch（ 32）:我要看到的调试信息^_^
+如果想改变输出中的各项内容，可以参考相应颜色的标示，比如，如果想定义LOGE，就可以把上面的ANDROID_LOG_DEBUG改成ANDROID_LOG_ERROR，同理，LOGI神马的也都以此类推：
+
+#define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, "ProjectName", __VA_ARGS__) 
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG , "ProjectName", __VA_ARGS__)
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO  , "ProjectName", __VA_ARGS__)
+#define LOGW(...) __android_log_print(ANDROID_LOG_WARN  , "ProjectName", __VA_ARGS__)
+#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR  , "ProjectName", __VA_ARGS__)
+当然，如果不嫌麻烦，也可以直接使用__android_log_print函数，而不define定义LOGxxx
+
+  ——JobTessio公司(缘来日本）承办
+
+职    位：研究开发工程师，研究开发专家
+要    求：具有一定C++或Java编程能力的本科、硕士、博士。
+专    业：不限
+年    级：2015年、2016年毕业生
+（2014年9月份上大四、研二、研三。offer保留两年）
+语言能力：有一定英语能力
+工资待遇：第一年年薪为35万-40万人民币。
+（录用者公司可协助解决入籍上海户口）
+工作内容：主要是对本公司软件进行开发、升级。
+招聘人数：200人
+（由于公司今年拓展业务，所以将在新学期开始时进行全国范围补充招聘。）
+宣讲时间： 待 定
+面试时间： 待 定
+工作地点：日本东京、上海、新加坡(第1年在上海)            简历发送到2899494403@qq.com 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+       <property name="hibernate.connection.username">gaomh</property> 
+       <property name="hibernate.connection.password">gaomh</property>    
+       <property name="hibernate.connection.url">jdbc:mysql://192.168.0.104:3306/ctfo_01?useUnicode=true&amp;characterEncoding=utf-8</property>    
+       <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>    
+       <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>    
+       <property name="hibernate.hbm2ddl.auto">update</property>
+       <property name="hibernate.show_sql">true</property>          
+       
+       <!--
+			 设置事务的隔离级别
+			    1—Read uncommitted isolation
+				2—Read committed isolation
+				4—Repeatable read isolation
+				8—Serializable isolation
+		-->
+	    <property name="hibernate.connection.isolation">4</property>
+		<!-- 
+			session对象的生命周期与本地线程绑定
+			hibernate.current_session_context_class 属性用于指定 Session 管理方式, 可选值包括
+				* thread: Session 对象的生命周期与本地线程绑定
+				* jta*: Session 对象的生命周期与 JTA 事务绑定
+				* managed: Hibernate 委托程序来管理 Session 对象的生命周期
+		-->
+		<property name="hibernate.current_session_context_class">thread</property>
+       
+       <mapping resource="cn/ctfo/domain/Inquest.hbm.xml"/>
+       <mapping resource="cn/ctfo/domain/CompanyInfo.hbm.xml"/>
+       <mapping resource="cn/ctfo/domain/Attachment.hbm.xml"/>
+    </session-factory>
+ </hibernate-configuration>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/ll_header_main"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="5dip"
+                    android:src="@drawable/dl_daoli" />
+
+                <Button
+                    android:id="@+id/bt_setting"
+                    android:layout_width="70dip"
+                    android:layout_height="37dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dip"
+                    android:background="@drawable/button_long_selected"
+                    android:text="@string/setting"
+                    android:textColor="@android:color/white"
+                    android:textSize="14dip" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/devider_round" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="本地资源"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <!--
+         <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:foregroundGravity="center_horizontal"
+        android:orientation="vertical" >
+            -->
+
+            <RelativeLayout
+                android:id="@+id/rl_content"
+                android:layout_width="match_parent"
+                android:layout_height="300dip"
+                android:layout_below="@id/ll_header_main" >
+
+                <TextView
+                    android:id="@+id/tv_path"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="当前文件路径。。。" />
+
+                <ListView
+                    android:id="@+id/lv_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tv_path"
+                    android:layout_marginTop="2dip" >
+                </ListView>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_below="@id/rl_content"
+                android:layout_marginLeft="2dip"
+                android:layout_marginRight="2dip"
+                android:background="@drawable/devider_round" />
+
+            <RelativeLayout
+                android:id="@+id/rl_datafromcloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/rl_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/tv_login_info"
+                    android:layout_width="100dip"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_seletor"
+                    android:text="@string/login"
+                    android:textColor="@android:color/white"
+                    android:textSize="19sp" />
+
+                <ImageView
+                    android:id="@+id/handle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/select_yun_m"
+                    android:text="@string/cloud" />
+            </RelativeLayout>
+
+            <!-- </com.daolicloud.box.view.TempSlidingDrawer> -->
+            <!-- </FrameLayout> -->
+        </LinearLayout>
+         <SlidingDrawer
+           android:topOffset="150dip"
+                android:id="@+id/sd_cloud"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:content="@+id/content"
+                android:handle="@+id/ivhandle"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@id/ivhandle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/select_yun_m" />
+
+                <LinearLayout
+                    android:id="@id/content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加到云端" />
+
+                    <ListView
+                          android:background="@drawable/bg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" 
+                        android:id="@+id/lv_cloud">
+                    </ListView>
+                </LinearLayout>
+            </SlidingDrawer>
+        
+    </FrameLayout>
+
+</RelativeLayout>

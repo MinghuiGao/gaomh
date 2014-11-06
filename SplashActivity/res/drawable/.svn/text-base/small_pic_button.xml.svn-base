@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		pic_button.xml Copyright © Symbio. All rights reserved. @author David
+		Guo @version 1.01 03/12/10
+	-->
+<selector
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:state_pressed="false"
+		android:drawable="@drawable/small_button_bg1" />
+	<item
+		android:state_pressed="true"
+		android:drawable="@drawable/small_button_bg2" />
+	<item
+		android:drawable="@drawable/small_button_bg1" />
+</selector>

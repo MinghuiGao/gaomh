@@ -1,0 +1,15 @@
+nohup et 
+
+# 打一个空的excel或doc，可以这样做：
+#    et #打开空excel
+#    wps #打开空word
+
+#打开某个excel或doc，可以这样做：
+
+#    et aa.xls
+#    wps aa.doc
+
+#以上命令都是在前台运行，如果shell退出后，同时会关闭excel或word，可以这样在后台运行:
+
+#    nohup et aa.xls &
+#    nohup wps aa.doc &
