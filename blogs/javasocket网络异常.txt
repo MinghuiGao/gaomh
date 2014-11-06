@@ -1,0 +1,24 @@
+http://blog.csdn.net/chenyi8888/article/details/3143361
+
+大家在做java网络编程的时候，可能对一些错误信息不是很明白。在此，我将在实际使用中出现常用信息进行如下的总结。
+java网络在使用中，常出现错误信息如下：
+1、EOFException
+      抛出此类异常，表示连接丢失，也就是说网络连接的另一端非正常关闭连接（可能是主机断电、网线出现故障等导致）
+ 
+2、ConnectException：connection refused connect.
+      抛出此类异常，表示无法连接，也就是说当前主机不存在
+ 
+3、SocketException：socket is closed.
+      抛出此类异常，表示连接正常关闭，也就是说另一端主动关闭连接
+ 
+4、SocketException：connection reset.
+      抛出此类异常，表示一端关闭连接，而另一端此时在读数据
+ 
+5、SocketException：connect reset by peer.
+      抛出此类异常，表示一端关闭连接，而另一端此时在发送数据
+ 
+6、SocketException：broken pipe.
+      抛出此类异常，表示连接已关闭，但还继续使用（也就是读/写操作）此连接
+ 
+7、BindException：address already in use
+     抛出此类异常，表示端口已经被占用
