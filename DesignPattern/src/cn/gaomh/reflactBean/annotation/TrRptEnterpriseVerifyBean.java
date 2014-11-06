@@ -102,6 +102,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"企业ID"**/
+	@EntInfo(title="",unit="")
 	public java.lang.String getEnterpriseId() {
 		return this.enterpriseId;
 	}
@@ -111,6 +112,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"企业名称"**/
+	@EntInfo(title="企业名称：",unit="")
 	public java.lang.String getEnterpriseName() {
 		return this.enterpriseName;
 	}
@@ -120,6 +122,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"经营许可证号"**/
+	@EntInfo(title="经营许可证号：",unit="")
 	public java.lang.String getPrmtNum() {
 		return this.prmtNum;
 	}
@@ -129,6 +132,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"所属区县"**/
+	@EntInfo(title="所属区县：",unit="")
 	public java.lang.String getRegion() {
 		return this.region;
 	}
@@ -138,6 +142,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"经营地址"**/
+	@EntInfo(title="经营地址：",unit="")
 	public java.lang.String getJyAddress() {
 		return this.jyAddress;
 	}
@@ -147,6 +152,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"经济类型"**/
+	@EntInfo(title="经济类型：",unit="")
 	public java.lang.String getJdType() {
 		return this.jdType;
 	}
@@ -156,6 +162,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"核算形式"**/
+	@EntInfo(title="核算形式：",unit="")
 	public java.lang.String getAcctgMeth() {
 		return this.acctgMeth;
 	}
@@ -165,6 +172,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"法定代表人"**/
+	@EntInfo(title="法定代表人：",unit="")
 	public java.lang.String getLegalPers() {
 		return this.legalPers;
 	}
@@ -174,6 +182,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"身份证号"**/
+	@EntInfo(title="身份证号：",unit="")
 	public java.lang.String getId() {
 		return this.id;
 	}
@@ -183,6 +192,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"联系电话"**/
+	@EntInfo(title="联系电话：",unit="")
 	public java.lang.String getRepairTel() {
 		return this.repairTel;
 	}
@@ -191,7 +201,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.phoneNum = value;
 	}
 	
-	/**获取"手机"**/
+	/**获取"手机"**/@EntInfo(title="手机：",unit="")
 	public java.lang.String getPhoneNum() {
 		return this.phoneNum;
 	}
@@ -200,7 +210,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.repairFax = value;
 	}
 	
-	/**获取"传真"**/
+	/**获取"传真"**/@EntInfo(title="传真：",unit="")
 	public java.lang.String getRepairFax() {
 		return this.repairFax;
 	}
@@ -209,7 +219,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.email = value;
 	}
 	
-	/**获取"EMAIL"**/
+	/**获取"EMAIL"**/@EntInfo(title="EMAIL：",unit="")
 	public java.lang.String getEmail() {
 		return this.email;
 	}
@@ -219,6 +229,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"邮政编号"**/
+	@EntInfo(title="邮政编号：",unit="")
 	public java.lang.String getPstlNum() {
 		return this.pstlNum;
 	}
@@ -228,6 +239,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"业务电话"**/
+	@EntInfo(title="业务电话：",unit="")
 	public java.lang.String getBusTel() {
 		return this.busTel;
 	}
@@ -236,7 +248,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.mgrarea = value;
 	}
 	
-	/**获取"许可经营范围"**/
+	/**获取"许可经营范围"**/@EntInfo(title="许可经营范围：",unit="")
 	public java.lang.String getMgrarea() {
 		return this.mgrarea;
 	}
@@ -245,7 +257,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.prkArea = value;
 	}
 	
-	/**获取"停车场面积"**/
+	/**获取"停车场面积"**/@EntInfo(title="停车场面积：",unit="平方米")
 	public java.lang.Double getPrkArea() {
 		return this.prkArea;
 	}
@@ -254,7 +266,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.plantArea = value;
 	}
 	
-	/**获取"生产厂房面积"**/
+	/**获取"生产厂房面积"**/@EntInfo(title="生产厂房面积：",unit="平方米")
 	public java.lang.Double getPlantArea() {
 		return this.plantArea;
 	}
@@ -263,7 +275,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.rptArea = value;
 	}
 	
-	/**获取"接待室面积"**/
+	/**获取"接待室面积"**/@EntInfo(title="接待室面积：",unit="平方米")
 	public java.lang.Double getRptArea() {
 		return this.rptArea;
 	}
@@ -272,7 +284,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.zdArea = value;
 	}
 	
-	/**获取"占地面积"**/
+	/**获取"占地面积"**/@EntInfo(title="占地面积：",unit="平方米")
 	public java.lang.Double getZdArea() {
 		return this.zdArea;
 	}
@@ -281,7 +293,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.fundTotal = value;
 	}
 	
-	/**获取"资金总额"**/
+	/**获取"资金总额"**/@EntInfo(title="资金总额：",unit="元")
 	public java.lang.Double getFundTotal() {
 		return this.fundTotal;
 	}
@@ -290,7 +302,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.regTotal = value;
 	}
 	
-	/**获取"注册资金"**/
+	/**获取"注册资金"**/@EntInfo(title="注册资金：",unit="元")
 	public java.lang.Double getRegTotal() {
 		return this.regTotal;
 	}
@@ -299,7 +311,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.fixTotal = value;
 	}
 	
-	/**获取"固定资金"**/
+	/**获取"固定资金"**/@EntInfo(title="固定资金：",unit="元")
 	public java.lang.Double getFixTotal() {
 		return this.fixTotal;
 	}
@@ -308,7 +320,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.flowTotal = value;
 	}
 	
-	/**获取"流动资金"**/
+	/**获取"流动资金"**/@EntInfo(title="流动资金：",unit="元")
 	public java.lang.Double getFlowTotal() {
 		return this.flowTotal;
 	}
@@ -317,7 +329,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.openTime = value;
 	}
 	
-	/**获取"开业时间"**/
+	/**获取"开业时间"**/@EntInfo(title="开业时间：",unit="")
 	public java.util.Date getOpenTime() {
 		return this.openTime;
 	}
@@ -326,7 +338,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.describe = value;
 	}
 	
-	/**获取"经营者意见描述"**/
+	/**获取"经营者意见描述"**/@EntInfo(title="经营者意见描述：",unit="")
 	public java.lang.String getDescribe() {
 		return this.describe;
 	}
@@ -335,7 +347,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.uploadTime = value;
 	}
 	
-	/**获取"上报日期"**/
+	/**获取"上报日期"**/@EntInfo(title="上报日期",unit="")
 	public java.util.Date getUploadTime() {
 		return this.uploadTime;
 	}
@@ -345,6 +357,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"企业状态1注销、2吊销、3歇业、4有效、5无效"**/
+	@EntInfo(title="企业状态:",unit="")
 	public java.lang.Integer getComStatus() {
 		return this.comStatus;
 	}
@@ -353,7 +366,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.checkNum = value;
 	}
 	
-	/**获取"核对次数"**/
+	/**获取"核对次数"**/@EntInfo(title="核对次数：",unit="")
 	public java.lang.Integer getCheckNum() {
 		return this.checkNum;
 	}
@@ -365,6 +378,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	
 	/**获取"筛选状态
 质量信誉筛选企业，在筛选之前筛选状态字段更新为0，1、企业筛选、2、企业上报"**/
+	@EntInfo(title="筛选状态：",unit="")
 	public java.lang.Integer getScrnStatus() {
 		return this.scrnStatus;
 	}
@@ -374,6 +388,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 	}
 	
 	/**获取"备注"**/
+	@EntInfo(title="备注：",unit="")
 	public java.lang.String getRemark() {
 		return this.remark;
 	}
@@ -382,7 +397,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.createTime = value;
 	}
 	
-	/**获取"创建日期"**/
+	/**获取"创建日期"**/@EntInfo(title="创建日期：",unit="")
 	public java.util.Date getCreateTime() {
 		return this.createTime;
 	}
@@ -391,7 +406,7 @@ public class TrRptEnterpriseVerifyBean implements java.io.Serializable {
 		this.updateTime = value;
 	}
 	
-	/**获取"更新日期"**/
+	/**获取"更新日期"**/@EntInfo(title="更新日期：",unit="")
 	public java.util.Date getUpdateTime() {
 		return this.updateTime;
 	}
