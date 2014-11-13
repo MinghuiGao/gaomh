@@ -19,7 +19,7 @@
             android:layout_height="40dip"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
-
+
     <RelativeLayout
         android:id="@+id/rl_fileName_s"
         android:layout_width="match_parent"

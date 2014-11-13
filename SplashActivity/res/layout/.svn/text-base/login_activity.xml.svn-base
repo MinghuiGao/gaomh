@@ -25,7 +25,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/login" />
-        </FrameLayout>
+        </FrameLayout>
         -->
 
         <LinearLayout
@@ -160,7 +160,7 @@
         <!--
          <include
         android:id="@+id/bottomBar"
-        layout="@layout/bottombar" />
+        layout="@layout/bottombar" />
         -->
 
     </RelativeLayout>
